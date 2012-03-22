@@ -5,8 +5,8 @@ require 'spec_helper'
 describe IceNine, '.deep_freeze' do
   subject { IceNine.deep_freeze(value) }
 
-  context 'with a freezable object' do
-    let(:value) { 'string' }
+  context 'with an Object' do
+    let(:value) { Object.new }
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -16,7 +16,7 @@ describe IceNine, '.deep_freeze' do
   context 'with an Array' do
     let(:value) { %w[ a ] }
 
-    it 'freezes the Array' do
+    it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
 
@@ -28,7 +28,7 @@ describe IceNine, '.deep_freeze' do
   context 'with a Hash' do
     let(:value) { { Object.new => Object.new } }
 
-    it 'freezes the Hash' do
+    it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
 
@@ -44,7 +44,7 @@ describe IceNine, '.deep_freeze' do
   context 'with a Range' do
     let(:value) { 'a'..'z' }
 
-    it 'freezes the Range' do
+    it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
 
@@ -61,7 +61,7 @@ describe IceNine, '.deep_freeze' do
     let(:value) { klass.new('1') }
     let(:klass) { Struct.new(:a) }
 
-    it 'freezes the Struct' do
+    it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
 
@@ -74,7 +74,7 @@ describe IceNine, '.deep_freeze' do
     context "with a #{value.class}" do
       let(:value) { value }
 
-      it 'does not freeze the value' do
+      it 'does not freeze the object' do
         expect { subject }.should_not change(value, :frozen?).from(false)
       end
     end
