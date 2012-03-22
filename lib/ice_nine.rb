@@ -14,7 +14,12 @@ module IceNine
   #
   # @api public
   def self.deep_freeze(object)
-    object.freeze
+    case object
+    when Array
+      object.each(&:freeze).freeze
+    else
+      object.freeze
+    end
   end
 
 end # IceNine
