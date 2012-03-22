@@ -3,7 +3,7 @@
 # Base IceNine module
 module IceNine
 
-  # Deep Freeze object
+  # Deep Freeze an object
   #
   # @example
   #   object = IceNine.deep_freeze(object)
@@ -19,8 +19,7 @@ module IceNine
       object
     else
       freeze_by_type(object)
-      freeze_instance_variables(object)
-      object.freeze
+      Freezer.deep_freeze(object)
     end
   end
 
@@ -52,19 +51,37 @@ module IceNine
 
   private_class_method :freeze_by_type
 
-  # Handle freezing the object's instance variables
-  #
-  # @param [Object] object
-  #
-  # @return [undefined]
-  #
-  # @api private
-  def self.freeze_instance_variables(object)
-    object.instance_variables.each do |ivar_name|
-      object.instance_variable_get(ivar_name).freeze
+  class Freezer
+
+    # Deep Freeze an object
+    #
+    # @example
+    #   object = IceNine.deep_freeze(Object.new)
+    #
+    # @param [Object] object
+    #
+    # @return [Object]
+    #
+    # @api public
+    def self.deep_freeze(object)
+      freeze_instance_variables(object)
+      object.freeze
     end
-  end
 
-  private_class_method :freeze_instance_variables
+    # Handle freezing the object's instance variables
+    #
+    # @param [Object] object
+    #
+    # @return [undefined]
+    #
+    # @api private
+    def self.freeze_instance_variables(object)
+      object.instance_variables.each do |ivar_name|
+        object.instance_variable_get(ivar_name).freeze
+      end
+    end
 
+    private_class_method :freeze_instance_variables
+
+  end # Freezer
 end # IceNine

@@ -3,7 +3,9 @@
 require 'spec_helper'
 
 describe IceNine, '.deep_freeze' do
-  subject { IceNine.deep_freeze(value) }
+  subject { object.deep_freeze(value) }
+
+  let(:object) { self.class.described_type }
 
   context 'with an Object' do
     let(:value) { Object.new }
