@@ -18,7 +18,7 @@ module IceNine
     when Numeric, TrueClass, FalseClass, NilClass, Symbol
       object
     else
-      freezer(object)
+      freeze_by_type(object)
       object.freeze
     end
   end
@@ -32,7 +32,7 @@ module IceNine
   # @todo split this up into separate classes that handle freezing each type
   #
   # @api private
-  def self.freezer(object)
+  def self.freeze_by_type(object)
     case object
     when Array
       object.each(&:freeze)
@@ -49,6 +49,6 @@ module IceNine
     end
   end
 
-  private_class_method :freezer
+  private_class_method :freeze_by_type
 
 end # IceNine
