@@ -17,6 +17,11 @@ module IceNine
     case object
     when Array
       object.each(&:freeze).freeze
+    when Hash
+      object.each { |key, value|
+        key.freeze
+        value.freeze
+      }.freeze
     else
       object.freeze
     end
