@@ -37,6 +37,8 @@ module IceNine
     when Range
       object.begin.freeze
       object.end.freeze
+    when Struct
+      object.each(&:freeze)
     end
   end
 

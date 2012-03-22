@@ -56,4 +56,17 @@ describe IceNine, '.deep_freeze' do
       subject.end.should be_frozen
     end
   end
+
+  context 'with a Struct' do
+    let(:value) { klass.new('1') }
+    let(:klass) { Struct.new(:a) }
+
+    it 'freezes the Struct' do
+      expect { subject }.should change(value, :frozen?).from(false).to(true)
+    end
+
+    it 'freezes each value in the Struct' do
+      subject.values.select(&:frozen?).should == subject.values
+    end
+  end
 end
