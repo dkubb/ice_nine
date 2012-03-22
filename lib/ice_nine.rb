@@ -14,6 +14,7 @@ module IceNine
   #
   # @api public
   def self.deep_freeze(object)
+    return object if object.kind_of?(Numeric)
     freezer(object)
     object.freeze
   end

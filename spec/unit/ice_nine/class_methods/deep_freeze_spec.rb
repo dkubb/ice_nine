@@ -69,4 +69,12 @@ describe IceNine, '.deep_freeze' do
       subject.values.select(&:frozen?).should == subject.values
     end
   end
+
+  context 'with a Numeric' do
+    let(:value) { 1 }
+
+    it 'does not freeze the Numeric' do
+      expect { subject }.should_not change(value, :frozen?).from(false)
+    end
+  end
 end
