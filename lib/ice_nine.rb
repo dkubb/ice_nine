@@ -19,6 +19,7 @@ module IceNine
       object
     else
       freeze_by_type(object)
+      freeze_instance_variables(object)
       object.freeze
     end
   end
@@ -50,5 +51,20 @@ module IceNine
   end
 
   private_class_method :freeze_by_type
+
+  # Handle freezing the object's instance variables
+  #
+  # @param [Object] object
+  #
+  # @return [undefined]
+  #
+  # @api private
+  def self.freeze_instance_variables(object)
+    object.instance_variables.each do |ivar_name|
+      object.instance_variable_get(ivar_name).freeze
+    end
+  end
+
+  private_class_method :freeze_instance_variables
 
 end # IceNine
