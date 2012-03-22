@@ -15,7 +15,7 @@ module IceNine
   # @api public
   def self.deep_freeze(object)
     case object
-    when Numeric, TrueClass
+    when Numeric, TrueClass, FalseClass
       object
     else
       freezer(object)

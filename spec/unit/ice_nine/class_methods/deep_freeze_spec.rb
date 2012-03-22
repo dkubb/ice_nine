@@ -85,4 +85,12 @@ describe IceNine, '.deep_freeze' do
       expect { subject }.should_not change(value, :frozen?).from(false)
     end
   end
+
+  context 'with a FalseClass' do
+    let(:value) { false }
+
+    it 'does not freeze the FalseClass' do
+      expect { subject }.should_not change(value, :frozen?).from(false)
+    end
+  end
 end
