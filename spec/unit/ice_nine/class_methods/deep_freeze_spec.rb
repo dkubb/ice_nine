@@ -70,43 +70,13 @@ describe IceNine, '.deep_freeze' do
     end
   end
 
-  context 'with a Numeric' do
-    let(:value) { 1 }
+  [ 0.0, 0, 0x7fffffffffffffff, true, false, nil, :symbol ].each do |value|
+    context "with a #{value.class}" do
+      let(:value) { value }
 
-    it 'does not freeze the Numeric' do
-      expect { subject }.should_not change(value, :frozen?).from(false)
-    end
-  end
-
-  context 'with a TrueClass' do
-    let(:value) { true }
-
-    it 'does not freeze the TrueClass' do
-      expect { subject }.should_not change(value, :frozen?).from(false)
-    end
-  end
-
-  context 'with a FalseClass' do
-    let(:value) { false }
-
-    it 'does not freeze the FalseClass' do
-      expect { subject }.should_not change(value, :frozen?).from(false)
-    end
-  end
-
-  context 'with a NilClass' do
-    let(:value) { nil }
-
-    it 'does not freeze the NilClass' do
-      expect { subject }.should_not change(value, :frozen?).from(false)
-    end
-  end
-
-  context 'with a Symbol' do
-    let(:value) { :symbol }
-
-    it 'does not freeze the Symbol' do
-      expect { subject }.should_not change(value, :frozen?).from(false)
+      it 'does not freeze the value' do
+        expect { subject }.should_not change(value, :frozen?).from(false)
+      end
     end
   end
 end
