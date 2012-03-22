@@ -40,4 +40,20 @@ describe IceNine, '.deep_freeze' do
       subject.values.select(&:frozen?).should == subject.values
     end
   end
+
+  context 'with a Range' do
+    let(:value) { 'a'..'z' }
+
+    it 'freezes the Range' do
+      expect { subject }.should change(value, :frozen?).from(false).to(true)
+    end
+
+    it 'freeze the first object in the Range' do
+      subject.begin.should be_frozen
+    end
+
+    it 'freeze the last object in the Range' do
+      subject.end.should be_frozen
+    end
+  end
 end

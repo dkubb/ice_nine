@@ -22,6 +22,10 @@ module IceNine
         key.freeze
         value.freeze
       }.freeze
+    when Range
+      object.begin.freeze
+      object.end.freeze
+      object.freeze
     else
       object.freeze
     end
