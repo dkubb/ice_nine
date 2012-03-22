@@ -14,21 +14,32 @@ module IceNine
   #
   # @api public
   def self.deep_freeze(object)
+    freezer(object)
+    object.freeze
+  end
+
+  # Handle freezing each type of object
+  #
+  # @param [Object] object
+  #
+  # @return [undefined]
+  #
+  # @api private
+  def self.freezer(object)
     case object
     when Array
-      object.each(&:freeze).freeze
+      object.each(&:freeze)
     when Hash
       object.each { |key, value|
         key.freeze
         value.freeze
-      }.freeze
+      }
     when Range
       object.begin.freeze
       object.end.freeze
-      object.freeze
-    else
-      object.freeze
     end
   end
+
+  private_class_method :freezer
 
 end # IceNine
