@@ -24,6 +24,8 @@ module IceNine
   #
   # @return [undefined]
   #
+  # @todo split this up into separate classes that handle freezing each type
+  #
   # @api private
   def self.freezer(object)
     case object
