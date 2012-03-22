@@ -1,0 +1,6 @@
+sources: lib/**/*.rb
+lints:
+  InstanceVariables:
+    limit: 0
+  LineRestriction:
+    limit: 0
