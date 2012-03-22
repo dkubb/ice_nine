@@ -93,4 +93,12 @@ describe IceNine, '.deep_freeze' do
       expect { subject }.should_not change(value, :frozen?).from(false)
     end
   end
+
+  context 'with a NilClass' do
+    let(:value) { nil }
+
+    it 'does not freeze the NilClass' do
+      expect { subject }.should_not change(value, :frozen?).from(false)
+    end
+  end
 end
