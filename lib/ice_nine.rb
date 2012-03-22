@@ -16,24 +16,7 @@ module IceNine
   def self.deep_freeze(object)
     case object
     when Numeric, TrueClass, FalseClass, NilClass, Symbol
-      object
-    else
-      freeze_by_type(object)
-      Freezer.deep_freeze(object)
-    end
-  end
-
-  # Handle freezing each type of object
-  #
-  # @param [Object] object
-  #
-  # @return [undefined]
-  #
-  # @todo split this up into separate classes that handle freezing each type
-  #
-  # @api private
-  def self.freeze_by_type(object)
-    case object
+      return object  # do nothing
     when Array
       object.each(&:freeze)
     when Hash
@@ -47,11 +30,26 @@ module IceNine
     when Struct
       object.each(&:freeze)
     end
+    Freezer[object.class].deep_freeze(object)
   end
 
-  private_class_method :freeze_by_type
-
   class Freezer
+
+    # Lookup the Freezer subclass by object type
+    #
+    # @param [Module] mod
+    #
+    # @return [Class<Freezer>]
+    #
+    # @api public
+    def self.[](mod)
+      name = mod.name
+      if name.length.nonzero? and const_defined?(name)
+        const_get(name)
+      else
+        self
+      end
+    end
 
     # Deep Freeze an object
     #
