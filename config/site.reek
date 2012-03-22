@@ -21,7 +21,7 @@ UncommunicativeMethodName:
   - !ruby/regexp /[0-9]$/
   - !ruby/regexp /[A-Z]/
 LongParameterList:
-  max_params: 0
+  max_params: 1
   exclude: []
   enabled: true
   overrides: {}
@@ -50,14 +50,14 @@ NestedIterators:
   enabled: true
   max_allowed_nesting: 0
 LongMethod:
-  max_statements: 0
+  max_statements: 1
   exclude: []
   enabled: true
 Duplication:
   allow_calls: []
   exclude: []
   enabled: true
-  max_calls: 0
+  max_calls: 1
 UtilityFunction:
   max_helper_calls: 0
   exclude: []
