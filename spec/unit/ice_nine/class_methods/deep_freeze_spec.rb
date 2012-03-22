@@ -101,4 +101,12 @@ describe IceNine, '.deep_freeze' do
       expect { subject }.should_not change(value, :frozen?).from(false)
     end
   end
+
+  context 'with a Symbol' do
+    let(:value) { :symbol }
+
+    it 'does not freeze the Symbol' do
+      expect { subject }.should_not change(value, :frozen?).from(false)
+    end
+  end
 end
