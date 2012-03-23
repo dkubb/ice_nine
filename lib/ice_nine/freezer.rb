@@ -20,9 +20,8 @@ module IceNine
     # @api public
     def self.[](mod)
       mod.ancestors.each do |ancestor|
-        name = ancestor.name
-        next if name.to_s.empty?  # skip anonymous modules
-        freezer = find(name)
+        name = ancestor.name.to_s
+        freezer = find(name) unless name.empty?  # skip anonymous modules
         return freezer if freezer
       end
       self
