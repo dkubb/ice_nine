@@ -4,6 +4,7 @@ require 'ice_nine/freezer'
 require 'ice_nine/freezer/array'
 require 'ice_nine/freezer/hash'
 require 'ice_nine/freezer/no_freeze'
+require 'ice_nine/freezer/range'
 
 require 'ice_nine/version'
 
@@ -24,9 +25,6 @@ module IceNine
     case object
     when Numeric
       return object  # do nothing
-    when Range
-      object.begin.freeze
-      object.end.freeze
     when Struct
       object.each(&:freeze)
     end
