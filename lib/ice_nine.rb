@@ -86,44 +86,31 @@ module IceNine
 
     private_class_method :freeze_instance_variables
 
-    # A freezer class for handling nil objects
-    class NilClass < self
+    # A freezer class that does not freeze anything
+    class NoFreeze < self
 
-      # Pass through the nil without freezing it
+      # Pass through the object without freezing it
       #
       # @example
-      #   nil_object = IceNine.deep_freeze(nil)
-      #   nil_object.frozen?  # => false
+      #   object = IceNine::Freezer::NoFreeze.deep_freeze(object)
+      #   object.frozen?  # => false
       #
-      # @param [NilClass] nil_object
+      # @param [Object] object
       #
-      # @return [NilClass]
+      # @return [Object]
       #
       # @api public
-      def self.deep_freeze(nil_object)
-        nil_object
+      def self.deep_freeze(object)
+        object
       end
 
-    end # class NilClass
+    end # class NoFreeze
+
+    # A freezer class for handling nil objects
+    class NilClass < NoFreeze; end
 
     # A freezer class for handling Symbol objects
-    class Symbol < self
+    class Symbol < NoFreeze; end
 
-      # Pass through the Symbol without freezing it
-      #
-      # @example
-      #   symbol = IceNine.deep_freeze(:symbol)
-      #   symbol.frozen?  # => false
-      #
-      # @param [Symbol] symbol
-      #
-      # @return [Symbol]
-      #
-      # @api public
-      def self.deep_freeze(symbol)
-        symbol
-      end
-
-    end # class Symbol
   end # class Freezer
 end # module IceNine
