@@ -103,7 +103,7 @@ module IceNine
         nil_object
       end
 
-    end # NilClass
+    end # class NilClass
 
     # A freezer class for handling Symbol objects
     class Symbol < self
@@ -123,6 +123,6 @@ module IceNine
         symbol
       end
 
-    end # Symbol
-  end # Freezer
-end # IceNine
+    end # class Symbol
+  end # class Freezer
+end # module IceNine
