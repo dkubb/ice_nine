@@ -7,7 +7,7 @@ module IceNine
       # Deep Freeze a Range
       #
       # @example
-      #   range = IceNine.deep_freeze('a'..'z')
+      #   range = IceNine:Freezer::Range.deep_freeze('a'..'z')
       #   range.begin.frozen?  # => true
       #   range.end.frozen?    # => true
       #

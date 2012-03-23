@@ -7,7 +7,7 @@ module IceNine
       # Deep Freeze a Hash
       #
       # @example
-      #   hash = IceNine.deep_freeze('a' => '1', 'b' => '2')
+      #   hash = IceNine::Freezer::Hash.deep_freeze('a' => '1', 'b' => '2')
       #   hash.keys.select(&:frozen?)    # => [ 'a', 'b' ]
       #   hash.values.select(&:frozen?)  # => [ '1', '2' ]
       #
