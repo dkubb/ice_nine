@@ -24,7 +24,6 @@ module IceNine
         freezer = find(name) unless name.empty?  # skip anonymous modules
         return freezer if freezer
       end
-      self
     end
 
     # Deep Freeze an object
