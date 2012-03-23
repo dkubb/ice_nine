@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'ice_nine/freezer'
+require 'ice_nine/freezer/array'
 require 'ice_nine/freezer/no_freeze'
 
 require 'ice_nine/version'
@@ -22,8 +23,6 @@ module IceNine
     case object
     when Numeric
       return object  # do nothing
-    when Array
-      object.each(&:freeze)
     when Hash
       object.each { |key, value|
         key.freeze
