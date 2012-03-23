@@ -23,12 +23,7 @@ module IceNine
   #
   # @api public
   def self.deep_freeze(object)
-    case object
-    when Struct
-      Freezer::Struct.deep_freeze(object)
-    else
-      Freezer[object.class].deep_freeze(object)
-    end
+    Freezer[object.class].deep_freeze(object)
   end
 
 end # module IceNine

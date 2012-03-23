@@ -20,7 +20,9 @@ module IceNine
     # @api public
     def self.[](mod)
       mod.ancestors.each do |ancestor|
-        freezer = find(ancestor.name)
+        name = ancestor.name
+        next if name.to_s.empty?  # skip anonymous modules
+        freezer = find(name)
         return freezer if freezer
       end
       self
@@ -49,10 +51,10 @@ module IceNine
     #
     # @api private
     def self.find(mod_name)
-      return self if mod_name.to_s.empty?
       namespace, const = mod_name.split('::', 2)
-      mod = const_lookup(namespace) if namespace
-      mod.find(const) if mod
+      mod = const_lookup(namespace)
+      return self unless mod  # stop when a more precise freezer is not found
+      const ? mod.find(const) : mod
     end
 
     class << self
