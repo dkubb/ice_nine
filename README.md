@@ -4,6 +4,17 @@ Deep Freeze Ruby Objects
 
 [![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.png)](http://travis-ci.org/dkubb/ice_nine)
 
+## Usage
+
+```ruby
+hash   = IceNine.deep_freeze('a' => '1')
+array  = IceNine.deep_freeze([ 'a', 'b', 'c' ])
+range  = IceNine.deep_freeze('a'..'z')
+struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
+object = IceNine.deep_freeze(Object.new)
+user   = IceNine.deep_freeze(Application::User.new('dkubb'))
+```
+
 ## Installation
 
 With Rubygems:
@@ -24,17 +35,6 @@ $ rake install
 $ irb -rubygems
 >> require 'ice_nine'
 => true
-```
-
-## Usage
-
-```ruby
-hash   = IceNine.deep_freeze('a' => '1')
-array  = IceNine.deep_freeze([ 'a', 'b', 'c' ])
-range  = IceNine.deep_freeze('a'..'z')
-struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
-object = IceNine.deep_freeze(Object.new)
-user   = IceNine.deep_freeze(Application::User.new('dkubb'))
 ```
 
 ## Note on Patches/Pull Requests
