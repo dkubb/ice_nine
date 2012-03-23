@@ -9,10 +9,6 @@ rescue LoadError
   RSpec = Spec::Runner
 end
 
-require 'ice_nine'
-
-ENV['TZ'] = 'UTC'
-
 # require spec support files and shared behavior
 Dir[File.expand_path('../shared/**/*.rb', __FILE__)].each { |file| require file }
 

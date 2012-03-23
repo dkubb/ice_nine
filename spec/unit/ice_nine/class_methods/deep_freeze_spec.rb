@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'ice_nine'
 
 describe IceNine, '.deep_freeze' do
   subject { object.deep_freeze(value) }

@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'ice_nine/freezer'
+require 'ice_nine/freezer/array'
 
 describe IceNine::Freezer::Array, '.deep_freeze' do
   subject { object.deep_freeze(value) }

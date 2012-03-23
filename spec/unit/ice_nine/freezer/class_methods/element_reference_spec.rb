@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'ice_nine/freezer'
 
 describe IceNine::Freezer, '.[]' do
   subject { object[mod] }
