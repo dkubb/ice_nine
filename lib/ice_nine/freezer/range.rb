@@ -19,8 +19,8 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(range)
-        range.begin.freeze
-        range.end.freeze
+        IceNine.deep_freeze(range.begin)
+        IceNine.deep_freeze(range.end)
         super range
       end
 

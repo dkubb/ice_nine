@@ -20,8 +20,8 @@ module IceNine
       # @api public
       def self.deep_freeze(hash)
         super hash.each { |key, value|
-          key.freeze
-          value.freeze
+          IceNine.deep_freeze(key)
+          IceNine.deep_freeze(value)
         }
       end
 

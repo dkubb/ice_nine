@@ -51,7 +51,7 @@ module IceNine
     # @api private
     def self.freeze_instance_variables(object)
       object.instance_variables.each do |ivar_name|
-        object.instance_variable_get(ivar_name).freeze
+        IceNine.deep_freeze(object.instance_variable_get(ivar_name))
       end
     end
 
