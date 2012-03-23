@@ -19,12 +19,11 @@ module IceNine
     #
     # @api public
     def self.[](mod)
-      name = mod.name.to_s
-      if name.length.nonzero? and const_defined?(name, *SKIP_ANCESTORS)
-        const_get(name, *SKIP_ANCESTORS)
-      else
-        self
+      mod.ancestors.each do |ancestor|
+        freezer = find(ancestor.name)
+        return freezer if freezer
       end
+      self
     end
 
     # Deep Freeze an object
@@ -41,6 +40,42 @@ module IceNine
       freeze_instance_variables(object)
       object.freeze
     end
+
+    # Find a Freezer subclass by name
+    #
+    # @param [String] mod_name
+    #
+    # @return [Class<Freezer>]
+    #
+    # @api private
+    def self.find(mod_name)
+      return self if mod_name.to_s.empty?
+      namespace, const = mod_name.split('::', 2)
+      mod = const_lookup(namespace) if namespace
+      mod.find(const) if mod
+    end
+
+    class << self
+      protected :find
+    end
+
+    # Lookup a constant in the namespace
+    #
+    # @param [String] namespace
+    #
+    # @return [Module]
+    #   returned if a matching freezer is found
+    # @return [nil]
+    #   returned if no matchiner freezer is found
+    #
+    # @api private
+    def self.const_lookup(namespace)
+      if const_defined?(namespace, *SKIP_ANCESTORS)
+        const_get(namespace, *SKIP_ANCESTORS)
+      end
+    end
+
+    private_class_method :const_lookup
 
     # Handle freezing the object's instance variables
     #

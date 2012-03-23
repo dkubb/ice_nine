@@ -23,6 +23,35 @@ describe IceNine::Freezer, '.[]' do
     it { should be(freezer) }
   end
 
+  describe 'when the module matches a descendant inside a namespace' do
+    let(:namespace) { Class.new(object) }
+    let(:freezer)   { Class.new(object) }
+    let(:mod)       { Application::User }
+
+    before :all do
+      module ::Application
+        class User; end
+      end
+    end
+
+    after :all do
+      ::Application.send(:remove_const, :User)
+      Object.send(:remove_const, :Application)
+    end
+
+    before do
+      namespace.const_set(:User, freezer)
+      object.const_set(:Application, namespace)
+    end
+
+    after do
+      namespace.send(:remove_const, :User)
+      object.send(:remove_const, :Application)
+    end
+
+    it { should be(freezer) }
+  end
+
   describe 'when the module does not match a descendant' do
     let(:mod) { Object }
 
