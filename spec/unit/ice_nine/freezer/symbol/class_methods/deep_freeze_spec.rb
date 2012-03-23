@@ -11,7 +11,9 @@ describe IceNine::Freezer::Symbol, '.deep_freeze' do
   context 'with a Symbol object' do
     let(:value) { :symbol }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'does not freeze the object' do
       expect { subject }.should_not change(value, :frozen?).from(false)

@@ -12,7 +12,9 @@ describe IceNine::Freezer::Struct, '.deep_freeze' do
     let(:value) { klass.new('1') }
     let(:klass) { Struct.new(:a) }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)

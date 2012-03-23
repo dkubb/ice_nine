@@ -9,7 +9,9 @@ describe IceNine::Freezer::NoFreeze, '.deep_freeze' do
   let(:object) { described_class }
   let(:value)  { stub('value')   }
 
-  it { should be(value) }
+  it 'returns the object' do
+    should be(value)
+  end
 
   it 'does not freeze the object' do
     expect { subject }.should_not change(value, :frozen?).from(false)

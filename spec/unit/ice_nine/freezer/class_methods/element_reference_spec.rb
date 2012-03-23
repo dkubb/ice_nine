@@ -7,7 +7,8 @@ require 'ice_nine/freezer/struct'
 describe IceNine::Freezer, '.[]' do
   subject { object[mod] }
 
-  let(:object) { described_class }
+  let(:object)  { described_class }
+  let(:freezer) { object          }
 
   describe 'when the module matches a descendant' do
     let(:freezer) { Class.new(object) }
@@ -21,7 +22,9 @@ describe IceNine::Freezer, '.[]' do
       object.send(:remove_const, mod.name)
     end
 
-    it { should be(freezer) }
+    it 'returns the freezer' do
+      should be(freezer)
+    end
   end
 
   describe 'when the module matches a descendant inside a namespace' do
@@ -50,25 +53,33 @@ describe IceNine::Freezer, '.[]' do
       object.send(:remove_const, :Application)
     end
 
-    it { should be(freezer) }
+    it 'returns the freezer' do
+      should be(freezer)
+    end
   end
 
   describe 'when the module is a struct' do
     let(:mod)     { Struct.new(:a)           }
     let(:freezer) { IceNine::Freezer::Struct }
 
-    it { should be(freezer) }
+    it 'returns the freezer' do
+      should be(freezer)
+    end
   end
 
   describe 'when the module does not match a descendant' do
     let(:mod) { Object }
 
-    it { should be(object) }
+    it 'returns the freezer' do
+      should be(freezer)
+    end
   end
 
   describe 'when the module is anonymous' do
     let(:mod) { Class.new }
 
-    it { should be(object) }
+    it 'returns the freezer' do
+      should be(freezer)
+    end
   end
 end

@@ -12,7 +12,9 @@ describe IceNine::Freezer::Numeric, '.deep_freeze' do
     context "with a #{value.class} object" do
       let(:value) { value }
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'does not freeze the object' do
         expect { subject }.should_not change(value, :frozen?).from(false)

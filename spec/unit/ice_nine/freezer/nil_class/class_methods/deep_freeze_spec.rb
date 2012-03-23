@@ -11,7 +11,9 @@ describe IceNine::Freezer::NilClass, '.deep_freeze' do
   context 'with a nil object' do
     let(:value) { nil }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'does not freeze the object' do
       expect { subject }.should_not change(value, :frozen?).from(false)

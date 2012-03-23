@@ -11,7 +11,9 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
   context 'with a Hash object' do
     let(:value) { { Object.new => Object.new } }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)

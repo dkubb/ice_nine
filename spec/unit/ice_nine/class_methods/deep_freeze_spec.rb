@@ -15,7 +15,9 @@ describe IceNine, '.deep_freeze' do
       value.instance_eval { @a = '1' }
     end
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -30,7 +32,9 @@ describe IceNine, '.deep_freeze' do
         value.instance_eval { @self = self }
       end
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'freezes the object' do
         expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -45,7 +49,9 @@ describe IceNine, '.deep_freeze' do
   context 'with an Array' do
     let(:value) { %w[ a ] }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -60,7 +66,9 @@ describe IceNine, '.deep_freeze' do
         value << value
       end
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'freezes the object' do
         expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -75,7 +83,9 @@ describe IceNine, '.deep_freeze' do
   context 'with a Hash' do
     let(:value) { { Object.new => Object.new } }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -94,7 +104,9 @@ describe IceNine, '.deep_freeze' do
         value[value] = value
       end
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'freezes the object' do
         expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -113,7 +125,9 @@ describe IceNine, '.deep_freeze' do
   context 'with a Range' do
     let(:value) { 'a'..'z' }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -132,7 +146,9 @@ describe IceNine, '.deep_freeze' do
     let(:value) { klass.new('1') }
     let(:klass) { Struct.new(:a) }
 
-    it { should be(value) }
+    it 'returns the object' do
+      should be(value)
+    end
 
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -147,7 +163,9 @@ describe IceNine, '.deep_freeze' do
         value.a = value
       end
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'freezes the object' do
         expect { subject }.should change(value, :frozen?).from(false).to(true)
@@ -163,7 +181,9 @@ describe IceNine, '.deep_freeze' do
     context "with a #{value.class}" do
       let(:value) { value }
 
-      it { should be(value) }
+      it 'returns the object' do
+        should be(value)
+      end
 
       it 'does not freeze the object' do
         expect { subject }.should_not change(value, :frozen?).from(false)
