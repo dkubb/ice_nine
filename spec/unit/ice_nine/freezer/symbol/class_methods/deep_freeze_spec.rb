@@ -7,7 +7,7 @@ describe IceNine::Freezer::Symbol, '.deep_freeze' do
 
   let(:object) { described_class }
 
-  context 'with a Symbol' do
+  context 'with a Symbol object' do
     let(:value) { :symbol }
 
     it { should be(value) }

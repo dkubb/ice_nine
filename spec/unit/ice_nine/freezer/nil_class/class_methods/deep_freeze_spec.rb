@@ -7,7 +7,7 @@ describe IceNine::Freezer::NilClass, '.deep_freeze' do
 
   let(:object) { described_class }
 
-  context 'with a nil' do
+  context 'with a nil object' do
     let(:value) { nil }
 
     it { should be(value) }
