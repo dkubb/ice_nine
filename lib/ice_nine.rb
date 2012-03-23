@@ -18,7 +18,7 @@ module IceNine
   # @api public
   def self.deep_freeze(object)
     case object
-    when Numeric, FalseClass
+    when Numeric
       return object  # do nothing
     when Array
       object.each(&:freeze)
