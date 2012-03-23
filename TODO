@@ -1,0 +1,3 @@
+* Move some of spec/unit/ice_nine/class_methods/deep_freeze_spec.rb into an
+  integration test.
+  * Keep some minimal unit tests just for the functionality in the method.
