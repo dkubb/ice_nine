@@ -52,9 +52,8 @@ module IceNine
     # @api private
     def self.find(mod_name)
       namespace, const = mod_name.split('::', 2)
-      mod = const_lookup(namespace)
-      return self unless mod  # stop when a more precise freezer is not found
-      const ? mod.find(const) : mod
+      mod = const_lookup(namespace) if namespace
+      mod ? mod.find(const.to_s) : self
     end
 
     class << self
