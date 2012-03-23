@@ -24,11 +24,12 @@ module IceNine
   def self.deep_freeze(object)
     case object
     when Numeric
-      return object  # do nothing
+      object  # do nothing
     when Struct
-      object.each(&:freeze)
+      object.each(&:freeze).freeze
+    else
+      Freezer[object.class].deep_freeze(object)
     end
-    Freezer[object.class].deep_freeze(object)
   end
 
 end # module IceNine
