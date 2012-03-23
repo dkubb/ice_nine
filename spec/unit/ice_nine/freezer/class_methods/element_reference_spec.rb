@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'ice_nine/freezer'
+require 'ice_nine/freezer/struct'
 
 describe IceNine::Freezer, '.[]' do
   subject { object[mod] }
@@ -48,6 +49,13 @@ describe IceNine::Freezer, '.[]' do
       namespace.send(:remove_const, :User)
       object.send(:remove_const, :Application)
     end
+
+    it { should be(freezer) }
+  end
+
+  describe 'when the module is a struct' do
+    let(:mod)     { Struct.new(:a)           }
+    let(:freezer) { IceNine::Freezer::Struct }
 
     it { should be(freezer) }
   end
