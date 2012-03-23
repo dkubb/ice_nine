@@ -1,6 +1,12 @@
 sources: lib/**/*.rb
 lints:
   InstanceVariables:
-    limit: 0
+    limit: 1
   LineRestriction:
-    limit: 0
+    limit: 87
+  DemeterLaw:
+    exclude:
+      - 'IceNine::Freezer'
+  ElseClauses:
+    exclude:
+      - 'IceNine::Freezer'
