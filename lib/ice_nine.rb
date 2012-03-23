@@ -33,6 +33,7 @@ module IceNine
     Freezer[object.class].deep_freeze(object)
   end
 
+  # The default class that handles freezing objects
   class Freezer
 
     # Under 1.9 configure const_get and const_defined?
