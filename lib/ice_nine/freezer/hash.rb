@@ -2,6 +2,8 @@
 
 module IceNine
   class Freezer
+
+    # A freezer class for handling Hash objects
     class Hash < self
 
       # Deep Freeze a Hash

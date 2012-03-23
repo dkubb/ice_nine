@@ -2,6 +2,8 @@
 
 module IceNine
   class Freezer
+
+    # A freezer class for handling Array objects
     class Array < self
 
       # Deep Freeze an Array

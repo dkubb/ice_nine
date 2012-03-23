@@ -2,6 +2,8 @@
 
 module IceNine
   class Freezer
+
+    # A freezer class for handling Range objects
     class Range < self
 
       # Deep Freeze a Range
