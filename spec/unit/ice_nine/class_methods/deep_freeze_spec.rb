@@ -54,6 +54,22 @@ describe IceNine, '.deep_freeze' do
     it 'freezes each element in the Array' do
       subject.select(&:frozen?).should == subject
     end
+
+    context 'with a circular reference' do
+      before do
+        value << value
+      end
+
+      it { should be(value) }
+
+      it 'freezes the object' do
+        expect { subject }.should change(value, :frozen?).from(false).to(true)
+      end
+
+      it 'freezes each element in the Array' do
+        subject.select(&:frozen?).should == subject
+      end
+    end
   end
 
   context 'with a Hash' do
@@ -71,6 +87,26 @@ describe IceNine, '.deep_freeze' do
 
     it 'freezes each value in the Hash' do
       subject.values.select(&:frozen?).should == subject.values
+    end
+
+    context 'with a circular reference' do
+      before do
+        value[value] = value
+      end
+
+      it { should be(value) }
+
+      it 'freezes the object' do
+        expect { subject }.should change(value, :frozen?).from(false).to(true)
+      end
+
+      it 'freezes each key in the Hash' do
+        subject.keys.select(&:frozen?).should == subject.keys
+      end
+
+      it 'freezes each value in the Hash' do
+        subject.values.select(&:frozen?).should == subject.values
+      end
     end
   end
 
@@ -104,6 +140,22 @@ describe IceNine, '.deep_freeze' do
 
     it 'freezes each value in the Struct' do
       subject.values.select(&:frozen?).should == subject.values
+    end
+
+    context 'with a circular reference' do
+      before do
+        value.a = value
+      end
+
+      it { should be(value) }
+
+      it 'freezes the object' do
+        expect { subject }.should change(value, :frozen?).from(false).to(true)
+      end
+
+      it 'freezes each value in the Struct' do
+        subject.values.select(&:frozen?).should == subject.values
+      end
     end
   end
 
