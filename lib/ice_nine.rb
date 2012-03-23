@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require 'ice_nine/freezer'
+require 'ice_nine/freezer/no_freeze'
+
 require 'ice_nine/version'
 
 # Base IceNine module
