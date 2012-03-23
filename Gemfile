@@ -27,6 +27,6 @@ group :metrics do
   end
 
   platforms :rbx do
-    gem 'pelusa', '~> 0.1.1'
+    gem 'pelusa', '~> 0.2.0'
   end
 end
