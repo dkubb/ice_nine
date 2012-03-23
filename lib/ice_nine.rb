@@ -23,8 +23,6 @@ module IceNine
   # @api public
   def self.deep_freeze(object)
     case object
-    when Numeric
-      object  # do nothing
     when Struct
       object.each(&:freeze)
       object.freeze

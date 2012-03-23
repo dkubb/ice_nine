@@ -35,5 +35,8 @@ module IceNine
     # Skip freezing Symbol objects
     class Symbol < NoFreeze; end
 
+    # Skip freezing Numeric objects
+    class Numeric < NoFreeze; end
+
   end # class Freezer
 end # module IceNine
