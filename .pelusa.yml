@@ -4,9 +4,6 @@ lints:
     limit: 1
   LineRestriction:
     limit: 87
-  DemeterLaw:
-    exclude:
-      - 'IceNine::Freezer'
   ElseClauses:
     exclude:
       - 'IceNine::Freezer'
