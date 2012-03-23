@@ -11,6 +11,9 @@ module IceNine
 
     # Lookup the Freezer subclass by object type
     #
+    # @example
+    #   freezer_class = IceNine::Freezer[mod]
+    #
     # @param [Module] mod
     #
     # @return [Class<Freezer>]
