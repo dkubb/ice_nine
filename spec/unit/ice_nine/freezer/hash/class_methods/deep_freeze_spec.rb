@@ -25,5 +25,15 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
     it 'freezes each value in the Hash' do
       subject.values.select(&:frozen?).should == subject.values
     end
+
+    if RUBY_VERSION >= '1.9' and RUBY_ENGINE == 'rbx'
+      it 'does not freeze the Hash state' do
+        subject.instance_variable_get(:@state).should_not be_frozen
+      end
+
+      it 'does not freeze the Hash entries' do
+        subject.instance_variable_get(:@entries).should_not be_frozen
+      end
+    end
   end
 end
