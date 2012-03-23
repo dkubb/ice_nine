@@ -14,6 +14,8 @@ describe IceNine::Freezer, '.deep_freeze' do
       value.instance_eval { @a = '1' }
     end
 
+    it { should be(value) }
+
     it 'freezes the object' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
