@@ -35,6 +35,10 @@ module IceNine
 
   class Freezer
 
+    # Under 1.9 configure const_get and const_defined?
+    # to not search ancestors for constants
+    SKIP_ANCESTORS = (RUBY_VERSION < '1.9' ? [] : [ false ]).freeze
+
     # Lookup the Freezer subclass by object type
     #
     # @param [Module] mod
@@ -43,9 +47,9 @@ module IceNine
     #
     # @api public
     def self.[](mod)
-      name = mod.name
-      if name.length.nonzero? and const_defined?(name)
-        const_get(name)
+      name = mod.name.to_s
+      if name.length.nonzero? and const_defined?(name, *SKIP_ANCESTORS)
+        const_get(name, *SKIP_ANCESTORS)
       else
         self
       end
