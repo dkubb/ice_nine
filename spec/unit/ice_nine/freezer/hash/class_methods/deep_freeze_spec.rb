@@ -1,8 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'ice_nine/freezer'
-require 'ice_nine/freezer/hash'
+require 'ice_nine'
 
 describe IceNine::Freezer::Hash, '.deep_freeze' do
   subject { object.deep_freeze(value) }

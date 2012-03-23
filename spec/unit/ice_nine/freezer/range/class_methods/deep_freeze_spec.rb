@@ -1,8 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'ice_nine/freezer'
-require 'ice_nine/freezer/range'
+require 'ice_nine'
 
 describe IceNine::Freezer::Range, '.deep_freeze' do
   subject { object.deep_freeze(value) }

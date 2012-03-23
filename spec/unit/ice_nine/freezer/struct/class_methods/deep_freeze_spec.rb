@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'ice_nine/freezer/struct'
+require 'ice_nine'
 
 describe IceNine::Freezer::Struct, '.deep_freeze' do
   subject { object.deep_freeze(value) }
