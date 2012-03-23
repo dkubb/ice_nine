@@ -78,6 +78,9 @@ module IceNine
     # A freezer class for handling nil objects
     class NilClass < NoFreeze; end
 
+    # A freezer class for handling TrueClass objects
+    class TrueClass < NoFreeze; end
+
     # A freezer class for handling Symbol objects
     class Symbol < NoFreeze; end
 
