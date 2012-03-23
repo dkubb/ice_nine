@@ -23,16 +23,16 @@ module IceNine
 
     end # class NoFreeze
 
-    # A freezer class for handling nil objects
+    # Skip freezing nil objects
     class NilClass < NoFreeze; end
 
-    # A freezer class for handling TrueClass objects
+    # Skip freezing true objects
     class TrueClass < NoFreeze; end
 
-    # A freezer class for handling FalseClass objects
+    # Skip freezing false objects
     class FalseClass < NoFreeze; end
 
-    # A freezer class for handling Symbol objects
+    # Skip freezing Symbol objects
     class Symbol < NoFreeze; end
 
   end # class Freezer
