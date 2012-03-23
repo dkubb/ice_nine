@@ -48,9 +48,9 @@ NestedIterators:
   ignore_iterators: []
   exclude: []
   enabled: true
-  max_allowed_nesting: 0
+  max_allowed_nesting: 1
 LongMethod:
-  max_statements: 1
+  max_statements: 3
   exclude: []
   enabled: true
 Duplication:
@@ -76,7 +76,7 @@ UncommunicativeVariableName:
 SimulatedPolymorphism:
   exclude: []
   enabled: true
-  max_ifs: 0
+  max_ifs: 1
 DataClump:
   exclude: []
   enabled: true
