@@ -26,7 +26,8 @@ module IceNine
     when Numeric
       object  # do nothing
     when Struct
-      object.each(&:freeze).freeze
+      object.each(&:freeze)
+      object.freeze
     else
       Freezer[object.class].deep_freeze(object)
     end
