@@ -1,3 +1,8 @@
 * Move some of spec/unit/ice_nine/class_methods/deep_freeze_spec.rb into an
   integration test.
   * Keep some minimal unit tests just for the functionality in the method.
+* Change all usage of #freeze from IceNine::Freezer subclasses to use
+  IceNine.deep_freeze.
+  * Add a guard clause to IceNine.deep_freeze to prevent it from freezing an
+    object that has already been frozen. This prevents infinite recursion
+    errors when trying to freeze cyclical data structures.
