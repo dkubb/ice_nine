@@ -38,5 +38,8 @@ module IceNine
     # Skip freezing Numeric objects
     class Numeric < NoFreeze; end
 
+    # Skip freezing Hash::State objects on Rubinius
+    class Hash::State < NoFreeze; end
+
   end # class Freezer
 end # module IceNine
