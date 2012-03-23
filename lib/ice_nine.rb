@@ -15,7 +15,7 @@ module IceNine
   # @api public
   def self.deep_freeze(object)
     case object
-    when Numeric, TrueClass, FalseClass, NilClass, Symbol
+    when Numeric, TrueClass, FalseClass, NilClass
       return object  # do nothing
     when Array
       object.each(&:freeze)
@@ -81,5 +81,24 @@ module IceNine
 
     private_class_method :freeze_instance_variables
 
+    # A freezer class for handling Symbol objects
+    class Symbol < self
+
+      # Pass through the Symbol without freezing it
+      #
+      # @example
+      #   symbol = IceNine.deep_freeze(:symbol)
+      #   symbol.frozen?  # => false
+      #
+      # @param [Symbol] symbol
+      #
+      # @return [Symbol]
+      #
+      # @api public
+      def self.deep_freeze(symbol)
+        symbol
+      end
+
+    end # Symbol
   end # Freezer
 end # IceNine
