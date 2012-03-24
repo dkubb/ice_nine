@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'rubygems'
-
 begin
   require 'rspec'  # try for RSpec 2
 rescue LoadError
