@@ -6,7 +6,7 @@ require 'ice_nine'
 describe IceNine, '.deep_freeze' do
   subject { object.deep_freeze(value) }
 
-  let(:object) { self.class.described_type }
+  let(:object) { IceNine }
 
   context 'with an Object' do
     let(:value) { Object.new }
