@@ -26,7 +26,6 @@ module IceNine
     recursion_guard(recursion_guard_key(object)) do
       Freezer[object.class].deep_freeze(object)
     end
-    object
   end
 
   # Guard the system from recursive freezing
