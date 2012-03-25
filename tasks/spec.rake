@@ -1,27 +1,17 @@
 # encoding: utf-8
 
 begin
-  begin
-    require 'rspec/core/rake_task'
-  rescue LoadError
-    require 'spec/rake/spectask'
-
-    module RSpec
-      module Core
-        RakeTask = Spec::Rake::SpecTask
-      end
-    end
-  end
+  require 'spec/rake/spectask'
 
   desc 'Run all specs'
   task :spec => %w[ spec:unit spec:integration ]
 
   namespace :spec do
-    RSpec::Core::RakeTask.new(:integration) do |t|
+    Spec::Rake::SpecTask.new(:integration) do |t|
       t.pattern = 'spec/integration/**/*_spec.rb'
     end
 
-    RSpec::Core::RakeTask.new(:unit) do |t|
+    Spec::Rake::SpecTask.new(:unit) do |t|
       t.pattern = 'spec/unit/**/*_spec.rb'
     end
   end
@@ -34,7 +24,7 @@ end
 begin
   if RUBY_VERSION < '1.9'
     desc 'Generate code coverage'
-    RSpec::Core::RakeTask.new(:coverage) do |t|
+    Spec::Rake::SpecTask.new(:coverage) do |t|
       t.rcov      = true
       t.pattern   = 'spec/unit/**/*_spec.rb'
       t.rcov_opts = File.read('spec/rcov.opts').split(/\s+/)

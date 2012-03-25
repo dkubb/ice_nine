@@ -1,18 +1,14 @@
 # encoding: utf-8
 
-begin
-  require 'rspec'  # try for RSpec 2
-rescue LoadError
-  require 'spec'   # try for RSpec 1
-  RSpec = Spec::Runner
-end
+require 'spec'
+require 'spec/autorun'
 
 # require spec support files and shared behavior
 Dir[File.expand_path('../shared/**/*.rb', __FILE__)].each do |file|
   require file
 end
 
-RSpec.configure do |config|
+Spec::Runner.configure do |config|
 end
 
 if RUBY_VERSION >= '1.9' and ENV['COVERAGE'] == 'true'
