@@ -15,7 +15,7 @@ require 'ice_nine/version'
 module IceNine
 
   # The key to the objects being frozen in the current thread
-  CURRENT_OBJECTS_KEY = '__ice_nine_current_objects'.freeze
+  CURRENT_OBJECTS_KEY = :__ice_nine_current_objects
 
   # Deep Freeze an object
   #
