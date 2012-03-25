@@ -17,7 +17,10 @@ end
 
 if RUBY_VERSION >= '1.9' and ENV['COVERAGE'] == 'true'
   require 'simplecov'
-  SimpleCov.start
+  SimpleCov.start do
+    command_name 'spec:unit'
+    add_filter   'spec'
+  end
 end
 
 # change the heckle timeout to be 5 seconds
