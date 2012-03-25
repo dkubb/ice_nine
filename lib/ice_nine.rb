@@ -14,9 +14,6 @@ require 'ice_nine/version'
 # Base IceNine module
 module IceNine
 
-  # The key to the objects being frozen in the current thread
-  CURRENT_OBJECTS_KEY = :__ice_nine_current_objects
-
   # Deep Freeze an object
   #
   # @example
@@ -59,7 +56,7 @@ module IceNine
   #
   # @api private
   def self.current_objects
-    Thread.current[CURRENT_OBJECTS_KEY] ||= Set.new
+    Thread.current[:__ice_nine_current_objects] ||= Set.new
   end
 
   private_class_method :current_objects
