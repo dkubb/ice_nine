@@ -7,12 +7,19 @@ Deep Freeze Ruby Objects
 ## Usage
 
 ```ruby
+# Freezes most objects
 hash   = IceNine.deep_freeze('a' => '1')
 array  = IceNine.deep_freeze([ 'a', 'b', 'c' ])
 range  = IceNine.deep_freeze('a'..'z')
 struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
 object = IceNine.deep_freeze(Object.new)
 user   = IceNine.deep_freeze(Application::User.new('dkubb'))
+
+# Add core extension for Object#deep_freeze
+require 'ice_nine/core_ext/object'
+
+object = Object.new
+object.deep_freeze
 ```
 
 ## Installation
