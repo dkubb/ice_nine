@@ -8,7 +8,7 @@ module IceNine
     # Configure const_get and const_defined? to not search ancestors
     SKIP_ANCESTORS = (RUBY_VERSION < '1.9' ? [] : [false]).freeze
 
-    # Lookup the Freezer subclass by object type
+    # Look up the Freezer subclass by object type
     #
     # @example
     #   freezer_class = IceNine::Freezer[mod]
@@ -58,14 +58,14 @@ module IceNine
       protected :find
     end
 
-    # Lookup a constant in the namespace
+    # Look up a constant in the namespace
     #
     # @param [String] namespace
     #
     # @return [Module]
     #   returned if a matching freezer is found
     # @return [nil]
-    #   returned if no matchiner freezer is found
+    #   returned if no matching freezer is found
     #
     # @api private
     def self.const_lookup(namespace)

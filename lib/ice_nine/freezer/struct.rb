@@ -16,7 +16,7 @@ module IceNine
       #
       # @return [Struct]
       #
-      # @todo use super on Struct#each once it returns self in rbx
+      # @todo use super on Struct#each once it returns self in Rubinius
       #
       # @api public
       def self.deep_freeze(struct)
