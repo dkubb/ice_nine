@@ -5,15 +5,16 @@ source 'https://rubygems.org'
 gemspec
 
 group :metrics do
-  gem 'fattr',       '~> 2.2.1'
-  gem 'arrayfields', '~> 4.7.4'
-  gem 'flay',        '~> 1.4.3'
-  gem 'flog',        '~> 2.5.3'
-  gem 'map',         '~> 5.4.0'
-  gem 'reek',        '~> 1.2.8', :git => 'git://github.com/dkubb/reek.git'
-  gem 'roodi',       '~> 2.1.0'
-  gem 'tailor',      '~> 0.1.5'
-  gem 'yardstick',   '~> 0.4.0'
+  gem 'fattr',           '~> 2.2.1'
+  gem 'arrayfields',     '~> 4.7.4'
+  gem 'flay',            '~> 1.4.3'
+  gem 'flog',            '~> 2.5.3'
+  gem 'map',             '~> 5.4.0'
+  gem 'reek',            '~> 1.2.8', :git => 'git://github.com/dkubb/reek.git'
+  gem 'roodi',           '~> 2.1.0'
+  gem 'tailor',          '~> 0.1.5'
+  gem 'yardstick',       '~> 0.4.0'
+  gem 'yard-spellcheck', '~> 0.1.4'
 
   platforms :mri_19 do
     gem 'cane',      '~> 1.1.0'
