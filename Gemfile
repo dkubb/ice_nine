@@ -14,6 +14,10 @@ group :metrics do
   gem 'roodi',       '~> 2.1.0'
   gem 'yardstick',   '~> 0.4.0'
 
+  platforms :mri_19 do
+    gem 'cane', '~> 1.1.0'
+  end
+
   platforms :mri_18, :rbx do
     gem 'heckle',    '~> 1.4.3'
     gem 'json',      '~> 1.6.5'
