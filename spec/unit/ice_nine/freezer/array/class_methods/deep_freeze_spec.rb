@@ -10,7 +10,7 @@ describe IceNine::Freezer::Array, '.deep_freeze' do
   let(:object) { described_class }
 
   context 'with an Array object' do
-    let(:value) { %w[ a ] }
+    let(:value) { %w[a] }
 
     it 'returns the object' do
       should be(value)

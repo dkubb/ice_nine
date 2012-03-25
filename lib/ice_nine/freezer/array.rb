@@ -9,8 +9,8 @@ module IceNine
       # Deep Freeze an Array
       #
       # @example
-      #   array = IceNine:Freezer::Array.deep_freeze(%w[ a b c ])
-      #   array.select(&:frozen?)  # => [ 'a', 'b', 'c' ]
+      #   array = IceNine:Freezer::Array.deep_freeze(%w[a b c])
+      #   array.select(&:frozen?)  # => ['a', 'b', 'c']
       #
       # @param [Array] array
       #

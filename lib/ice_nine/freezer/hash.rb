@@ -10,8 +10,8 @@ module IceNine
       #
       # @example
       #   hash = IceNine::Freezer::Hash.deep_freeze('a' => '1', 'b' => '2')
-      #   hash.keys.select(&:frozen?)    # => [ 'a', 'b' ]
-      #   hash.values.select(&:frozen?)  # => [ '1', '2' ]
+      #   hash.keys.select(&:frozen?)    # => ['a', 'b']
+      #   hash.values.select(&:frozen?)  # => ['1', '2']
       #
       # @param [Hash] hash
       #

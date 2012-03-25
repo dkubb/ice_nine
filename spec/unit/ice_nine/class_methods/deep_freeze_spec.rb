@@ -47,7 +47,7 @@ describe IceNine, '.deep_freeze' do
   end
 
   context 'with an Array' do
-    let(:value) { %w[ a ] }
+    let(:value) { %w[a] }
 
     it 'returns the object' do
       should be(value)
@@ -177,7 +177,7 @@ describe IceNine, '.deep_freeze' do
     end
   end
 
-  [ 0.0, 0, 0x7fffffffffffffff, true, false, nil, :symbol ].each do |value|
+  [0.0, 0, 0x7fffffffffffffff, true, false, nil, :symbol].each do |value|
     context "with a #{value.class}" do
       let(:value) { value }
 

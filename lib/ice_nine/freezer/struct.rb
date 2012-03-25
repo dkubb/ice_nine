@@ -10,7 +10,7 @@ module IceNine
       #
       # @example
       #   struct = IceNine:Freezer::Struct.deep_freeze(klass.new('1'))
-      #   struct.values.select(&:frozen?)  # => [ '1' ]
+      #   struct.values.select(&:frozen?)  # => ['1']
       #
       # @param [Struct] struct
       #

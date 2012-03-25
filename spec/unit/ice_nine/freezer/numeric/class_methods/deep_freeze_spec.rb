@@ -8,7 +8,7 @@ describe IceNine::Freezer::Numeric, '.deep_freeze' do
 
   let(:object) { described_class }
 
-  [ 0.0, 0, 0x7fffffffffffffff ].each do |value|
+  [0.0, 0, 0x7fffffffffffffff].each do |value|
     context "with a #{value.class} object" do
       let(:value) { value }
 
