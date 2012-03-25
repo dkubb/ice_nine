@@ -15,7 +15,7 @@ struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
 object = IceNine.deep_freeze(Object.new)
 user   = IceNine.deep_freeze(Application::User.new('dkubb'))
 
-# Add core extension for Object#deep_freeze
+# Add core extension for Object#deep_freeze (not required by default)
 require 'ice_nine/core_ext/object'
 
 object = Object.new
