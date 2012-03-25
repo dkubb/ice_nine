@@ -16,7 +16,8 @@ group :metrics do
   gem 'tailor',      '~> 0.1.5'
 
   platforms :mri_19 do
-    gem 'cane', '~> 1.1.0'
+    gem 'cane',      '~> 1.1.0'
+    gem 'simplecov', '~> 0.6.1'
   end
 
   platforms :mri_18, :rbx do

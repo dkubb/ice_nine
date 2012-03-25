@@ -32,14 +32,23 @@ rescue LoadError
 end
 
 begin
-  desc 'Generate code coverage'
-  RSpec::Core::RakeTask.new(:rcov) do |t|
-    t.rcov      = true
-    t.rcov_opts = File.read('spec/rcov.opts').split(/\s+/)
+  if RUBY_VERSION < '1.9'
+    desc 'Generate code coverage'
+    RSpec::Core::RakeTask.new(:coverage) do |t|
+      t.rcov      = true
+      t.rcov_opts = File.read('spec/rcov.opts').split(/\s+/)
+    end
+  else
+    desc 'Generate code coverage'
+    task :coverage do
+      ENV['COVERAGE'] = 'true'
+      Rake::Task['spec:unit'].execute
+    end
   end
 rescue LoadError
-  task :rcov do
-    abort 'rcov is not available. In order to run rcov, you must: gem install rcov'
+  task :coverage do
+    lib = RUBY_VERSION < '1.9' ? 'rcov' : 'simplecov'
+    abort "coverage is not available. In order to run #{lib}, you must: gem install #{lib}"
   end
 end
 

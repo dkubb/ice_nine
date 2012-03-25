@@ -15,6 +15,11 @@ end
 RSpec.configure do |config|
 end
 
+if RUBY_VERSION >= '1.9' and ENV['COVERAGE'] == 'true'
+  require 'simplecov'
+  SimpleCov.start
+end
+
 # change the heckle timeout to be 5 seconds
 if defined?(::Heckle)
   class ::Heckle
