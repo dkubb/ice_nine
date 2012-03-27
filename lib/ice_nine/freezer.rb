@@ -21,8 +21,7 @@ module IceNine
     def self.[](mod)
       mod.ancestors.each do |ancestor|
         name = ancestor.name.to_s
-        freezer = find(name) unless name.empty?  # skip anonymous modules
-        return freezer if freezer
+        return find(name) unless name.empty?  # skip anonymous modules
       end
     end
 
@@ -43,20 +42,18 @@ module IceNine
 
     # Find a Freezer subclass by name
     #
-    # @param [String] mod_name
+    # @param [String] name
     #
     # @return [Class<Freezer>]
     #
     # @api private
-    def self.find(mod_name)
-      namespace, const = mod_name.split('::', 2)
-      mod = const_lookup(namespace) if namespace
-      mod ? mod.find(const.to_s) : self
+    def self.find(name)
+      name.split('::').reduce(self) do |mod, const|
+        mod.const_lookup(const) or break mod
+      end
     end
 
-    class << self
-      protected :find
-    end
+    private_class_method :find
 
     # Look up a constant in the namespace
     #
@@ -74,7 +71,9 @@ module IceNine
       end
     end
 
-    private_class_method :const_lookup
+    class << self
+      protected :const_lookup
+    end
 
     # Handle freezing the object's instance variables
     #
