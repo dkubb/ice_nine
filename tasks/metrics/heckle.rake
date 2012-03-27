@@ -12,7 +12,7 @@ begin
   require 'mspec'
   require 'mspec/utils/name_map'
 
-  SKIP_METHODS = %w[ blank_slate_method_added current_objects ].freeze
+  SKIP_METHODS = %w[ blank_slate_method_added guarded_objects ].freeze
 
   class NameMap
     def file_name(method, constant)
