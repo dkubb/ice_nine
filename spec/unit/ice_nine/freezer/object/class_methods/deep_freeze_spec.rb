@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'ice_nine'
 
-describe IceNine::Freezer, '.deep_freeze' do
+describe IceNine::Freezer::Object, '.deep_freeze' do
   subject { object.deep_freeze(value) }
 
   let(:object) { described_class }

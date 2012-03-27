@@ -8,7 +8,7 @@ describe IceNine::Freezer, '.[]' do
   subject { object[mod] }
 
   let(:object)  { described_class }
-  let(:freezer) { object          }
+  let(:freezer) { object::Object  }
 
   describe 'when the module matches a descendant' do
     let(:freezer) { Class.new(object) }

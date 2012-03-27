@@ -4,7 +4,7 @@ module IceNine
   class Freezer
 
     # A freezer class for handling Range objects
-    class Range < self
+    class Range < Object
 
       # Deep Freeze a Range
       #

@@ -4,7 +4,7 @@ module IceNine
   class Freezer
 
     # A freezer class for handling Struct objects
-    class Struct < self
+    class Struct < Object
 
       # Deep Freeze a Struct
       #
