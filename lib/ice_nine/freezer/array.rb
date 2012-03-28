@@ -18,7 +18,7 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(array)
-        super array.each(&:freeze)
+        super array.each { |element| IceNine.deep_freeze(element) }
       end
 
     end # class Array
