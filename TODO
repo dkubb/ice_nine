@@ -1,6 +1,3 @@
-* Move Freezer descendants into one file per class
-  * Right now it could be confusing to someone unfamiliar with the code base
-    because it's not obvious where some classes are located.
 * Move some of spec/unit/ice_nine/class_methods/deep_freeze_spec.rb into an
   integration test.
   * Keep some minimal unit tests just for the functionality in the method.

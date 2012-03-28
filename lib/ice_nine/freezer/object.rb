@@ -37,9 +37,5 @@ module IceNine
       private_class_method :freeze_instance_variables
 
     end # class Object
-
-    # A freezer class for handling String objects
-    class String < Object; end
-
   end # class Freezer
 end # module IceNine

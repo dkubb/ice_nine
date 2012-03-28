@@ -25,9 +25,5 @@ module IceNine
       end
 
     end # class Enumerable
-
-    # A freezer class for handling Struct objects
-    class Struct < Enumerable; end
-
   end # class Freezer
 end # module IceNine

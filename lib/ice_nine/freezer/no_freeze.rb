@@ -22,27 +22,5 @@ module IceNine
       end
 
     end # class NoFreeze
-
-    # Skip freezing nil objects
-    class NilClass < NoFreeze; end
-
-    # Skip freezing true objects
-    class TrueClass < NoFreeze; end
-
-    # Skip freezing false objects
-    class FalseClass < NoFreeze; end
-
-    # Skip freezing Symbol objects
-    class Symbol < NoFreeze; end
-
-    # Skip freezing Numeric objects
-    class Numeric < NoFreeze; end
-
-    # Skip freezing Rubinius objects
-    class Rubinius < NoFreeze; end
-
-    # Skip freezing Hash::State objects on Rubinius
-    class Hash::State < NoFreeze; end
-
   end # class Freezer
 end # module IceNine
