@@ -20,7 +20,7 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(struct)
-        struct.each(&IceNine.method(:deep_freeze))
+        struct.each { |value| IceNine.deep_freeze(value) }
         super struct
       end
 

@@ -143,8 +143,8 @@ describe IceNine, '.deep_freeze' do
   end
 
   context 'with a Struct' do
-    let(:value) { klass.new('1') }
-    let(:klass) { Struct.new(:a) }
+    let(:value) { klass.new(%w[ 1 2 ]) }
+    let(:klass) { Struct.new(:a)       }
 
     it 'returns the object' do
       should be(value)
