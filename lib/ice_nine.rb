@@ -7,10 +7,9 @@ require 'ice_nine/support/recursion_guard'
 require 'ice_nine/freezer'
 require 'ice_nine/freezer/object'
 
-require 'ice_nine/freezer/array'
+require 'ice_nine/freezer/enumerable'
 require 'ice_nine/freezer/hash'
 require 'ice_nine/freezer/range'
-require 'ice_nine/freezer/struct'
 
 require 'ice_nine/freezer/no_freeze'
 

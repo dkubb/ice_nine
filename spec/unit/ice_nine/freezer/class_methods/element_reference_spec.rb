@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 require 'ice_nine/freezer'
-require 'ice_nine/freezer/struct'
+require 'ice_nine/freezer/enumerable'
 
 describe IceNine::Freezer, '.[]' do
   subject { object[mod] }
