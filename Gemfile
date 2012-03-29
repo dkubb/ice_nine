@@ -23,7 +23,7 @@ group :metrics do
 
   platforms :mri_18, :rbx do
     gem 'heckle',    '~> 1.4.3'
-    gem 'json',      '~> 1.6.5'
+    gem 'json',      '~> 1.6.6'
     gem 'mspec',     '~> 1.5.17'
     gem 'ruby2ruby', '=  1.2.2'
   end
