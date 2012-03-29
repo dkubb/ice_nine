@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.email       = [ 'dan.kubb@gmail.com' ]
   gem.description = 'Deep Freeze Ruby Objects'
   gem.summary     = gem.description
-  gem.homepage    = "https://github.com/dkubb/ice_nine"
+  gem.homepage    = 'https://github.com/dkubb/ice_nine'
 
   gem.require_paths    = %w[ lib ]
   gem.files            = `git ls-files`.split("\n")
