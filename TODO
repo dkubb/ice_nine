@@ -1,0 +1,3 @@
+* Add a utility method that allows "NoFreeze" subclasses to be easily added for
+  any constant.
+  * Refactor the existing NoFreeze subclasses to use the method.
