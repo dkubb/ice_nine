@@ -1,2 +1,0 @@
-* Add a cache in IceNine::Freezer[] to avoid looking up the Freezer class more
-  than once per type.

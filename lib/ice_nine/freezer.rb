@@ -8,6 +8,14 @@ module IceNine
     # Configure const_get and const_defined? to not search ancestors
     SKIP_ANCESTORS = (RUBY_VERSION < '1.9' ? [] : [false]).freeze
 
+    # Cache the Freezer classes returned for each type
+    @freezer_cache = Hash.new do |cache, mod|
+      mod.ancestors.each do |ancestor|
+        freezer = find(ancestor.name.to_s)
+        break cache[mod] = freezer if freezer
+      end
+    end
+
     # Look up the Freezer descendant by object type
     #
     # @example
@@ -19,10 +27,7 @@ module IceNine
     #
     # @api public
     def self.[](mod)
-      mod.ancestors.each do |ancestor|
-        freezer = find(ancestor.name.to_s)
-        return freezer if freezer
-      end
+      @freezer_cache[mod]
     end
 
     # Find a Freezer descendant by name
