@@ -1,7 +1,2 @@
-* Add a guard clause to IceNine.deep_freeze to return the object immediately if
-  it is already frozen.
-  * If something is already frozen we want to trust that it's already been
-    visited by IceNine, or some user provided code. We do not want to attempt to
-    re-freeze the same objects over and over.
 * Add a cache in IceNine::Freezer[] to avoid looking up the Freezer class more
   than once per type.

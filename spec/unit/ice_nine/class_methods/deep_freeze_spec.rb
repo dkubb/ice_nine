@@ -13,15 +13,35 @@ describe IceNine, '.deep_freeze' do
     value.instance_eval { @a = '1' }
   end
 
-  it 'returns the object' do
-    should be(value)
+  context 'when the object is not frozen' do
+    it 'returns the object' do
+      should be(value)
+    end
+
+    it 'freezes the object' do
+      expect { subject }.should change(value, :frozen?).from(false).to(true)
+    end
+
+    it 'freezes the instance variables in the Object' do
+      subject.instance_variable_get(:@a).should be_frozen
+    end
   end
 
-  it 'freezes the object' do
-    expect { subject }.should change(value, :frozen?).from(false).to(true)
-  end
+  context 'when the object is frozen' do
+    before do
+      value.freeze
+    end
 
-  it 'freezes the instance variables in the Object' do
-    subject.instance_variable_get(:@a).should be_frozen
+    it 'returns the object' do
+      should be(value)
+    end
+
+    it 'does not freeze the object' do
+      expect { subject }.should_not change(value, :frozen?).from(true)
+    end
+
+    it 'does not freeze the instance variables in the Object' do
+      subject.instance_variable_get(:@a).should_not be_frozen
+    end
   end
 end
