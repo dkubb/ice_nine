@@ -203,8 +203,8 @@ begin
       puts 'Well done! Your code withstood a heckling.'
     end
   end
-rescue LoadError => e
+rescue LoadError
   task :heckle do
-    abort 'Heckle or mspec is not available. In order to run heckle, you must: gem install heckle mspec' << e
+    abort 'Heckle or mspec is not available. In order to run heckle, you must: gem install heckle mspec'
   end
 end
