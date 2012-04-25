@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ice nine by dkubb</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ice nine</h1>
+        <p>Deep Freeze Ruby Objects</p>
+        <p class="view"><a href="https://github.com/dkubb/ice_nine">View the Project on GitHub <small>dkubb/ice_nine</small></a></p>
+        <ul>
+          <li><a href="https://github.com/dkubb/ice_nine/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dkubb/ice_nine/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dkubb/ice_nine">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Ice Nine</h1>
+
+<p>Deep Freeze Ruby Objects</p>
+
+<p><a href="http://travis-ci.org/dkubb/ice_nine"><img src="https://secure.travis-ci.org/dkubb/ice_nine.png" alt="Build Status"></a></p>
+
+<h2>Usage</h2>
+
+<div class="highlight">
+<pre><span class="c1"># Freezes most objects</span>
+<span class="nb">hash</span>   <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="s1">'a'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">)</span>
+<span class="n">array</span>  <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="o">[</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span> <span class="o">]</span><span class="p">)</span>
+<span class="n">range</span>  <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="s1">'a'</span><span class="o">.</span><span class="n">.</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="n">struct</span> <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">)</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">))</span>
+<span class="n">object</span> <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="no">Object</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+<span class="n">user</span>   <span class="o">=</span> <span class="no">IceNine</span><span class="o">.</span><span class="n">deep_freeze</span><span class="p">(</span><span class="no">Application</span><span class="o">::</span><span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'dkubb'</span><span class="p">))</span>
+
+<span class="c1"># Add core extension for Object#deep_freeze (not required by default)</span>
+<span class="nb">require</span> <span class="s1">'ice_nine/core_ext/object'</span>
+
+<span class="n">object</span> <span class="o">=</span> <span class="no">Object</span><span class="o">.</span><span class="n">new</span>
+<span class="n">object</span><span class="o">.</span><span class="n">deep_freeze</span>
+</pre>
+</div>
+
+
+<h2>Installation</h2>
+
+<p>With Rubygems:</p>
+
+<div class="highlight">
+<pre><span class="nv">$ </span>gem install ice_nine
+<span class="nv">$ </span>irb -rubygems
+&gt;&gt; require <span class="s1">'ice_nine'</span>
+<span class="o">=</span>&gt; <span class="nb">true</span>
+</pre>
+</div>
+
+
+<p>With git and local working copy:</p>
+
+<div class="highlight">
+<pre><span class="nv">$ </span>git clone git://github.com/dkubb/ice_nine.git
+<span class="nv">$ </span><span class="nb">cd </span>ice_nine
+<span class="nv">$ </span>rake install
+<span class="nv">$ </span>irb -rubygems
+&gt;&gt; require <span class="s1">'ice_nine'</span>
+<span class="o">=</span>&gt; <span class="nb">true</span>
+</pre>
+</div>
+
+
+<h2>Note on Patches/Pull Requests</h2>
+
+<ul>
+<li>If you want your code merged into the mainline, please discuss the proposed changes with me before doing any work on it. This library is still in early development, and it may not always be clear the direction it is going. Some features may not be appropriate yet, may need to be deferred until later when the foundation for them is laid, or may be more applicable in a plugin.</li>
+<li>Fork the project.</li>
+<li>Make your feature addition or bug fix.
+
+<ul>
+<li>Follow this <a href="https://github.com/dkubb/styleguide">style guide</a>.</li>
+</ul>
+</li>
+<li>Add specs for it. This is important so I don't break it in a future version unintentionally. Tests must cover all branches within the code, and code must be fully covered.</li>
+<li>Commit, do not mess with Rakefile, version, or history.  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)</li>
+<li>Run "rake ci". This must pass and not show any regressions in the
+metrics for the code to be merged.</li>
+<li>Send me a pull request. Bonus points for topic branches.</li>
+</ul><h2>Copyright</h2>
+
+<p>Copyright © 2012 Dan Kubb. See LICENSE for details.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/dkubb">dkubb</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
