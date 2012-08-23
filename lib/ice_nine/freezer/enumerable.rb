@@ -20,7 +20,9 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(enumerable)
-        enumerable.each { |entry| IceNine.deep_freeze(entry) }
+        enumerable.each do |*args|
+          args.each { |arg| IceNine.deep_freeze(arg) }
+        end
         super enumerable
       end
 
