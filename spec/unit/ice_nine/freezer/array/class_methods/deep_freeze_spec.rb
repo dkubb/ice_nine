@@ -1,15 +1,14 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'ice_nine/freezer'
-require 'ice_nine/freezer/enumerable'
+require 'ice_nine'
 
-describe IceNine::Freezer::Enumerable, '.deep_freeze' do
+describe IceNine::Freezer::Array, '.deep_freeze' do
   subject { object.deep_freeze(value) }
 
   let(:object) { described_class }
 
-  context 'with an Enumerable object' do
+  context 'with an Array object' do
     let(:value) { %w[a] }
 
     it 'returns the object' do
@@ -20,7 +19,7 @@ describe IceNine::Freezer::Enumerable, '.deep_freeze' do
       expect { subject }.should change(value, :frozen?).from(false).to(true)
     end
 
-    it 'freezes each entry in the Enumerable' do
+    it 'freezes each entry in the Array' do
       subject.select(&:frozen?).should == subject
     end
   end
