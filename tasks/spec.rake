@@ -8,11 +8,13 @@ begin
 
   namespace :spec do
     Spec::Rake::SpecTask.new(:integration) do |t|
-      t.pattern = 'spec/integration/**/*_spec.rb'
+      t.ruby_opts = %w[ -r./spec/support/config_alias ]
+      t.pattern   = 'spec/integration/**/*_spec.rb'
     end
 
     Spec::Rake::SpecTask.new(:unit) do |t|
-      t.pattern = 'spec/unit/**/*_spec.rb'
+      t.ruby_opts = %w[ -r./spec/support/config_alias ]
+      t.pattern   = 'spec/unit/**/*_spec.rb'
     end
   end
 rescue LoadError
