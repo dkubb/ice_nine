@@ -1,7 +1,9 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'ice_nine/freezer'
 require 'ice_nine/freezer/no_freeze'
+require 'ice_nine/freezer/symbol'
 
 describe IceNine::Freezer::Symbol, '.deep_freeze' do
   subject { object.deep_freeze(value) }

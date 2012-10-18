@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'ice_nine/freezer'
+require 'ice_nine/freezer/object'
 require 'ice_nine/freezer/no_freeze'
+require 'ice_nine/freezer/true_class'
 
 describe IceNine::Freezer::TrueClass, '.deep_freeze' do
   subject { object.deep_freeze(value) }
