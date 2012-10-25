@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-require 'rubygems'
 require 'rake'
 
 FileList['tasks/**/*.rake'].each { |task| import task }
