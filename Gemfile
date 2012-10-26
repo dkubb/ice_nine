@@ -13,7 +13,7 @@ group :metrics do
   gem 'reek',            '~> 1.2.8', :github => 'dkubb/reek'
   gem 'roodi',           '~> 2.1.0'
   gem 'tailor',          '~> 0.1.5'
-  gem 'yardstick',       '~> 0.4.0'
+  gem 'yardstick',       '~> 0.7.0'
   gem 'yard-spellcheck', '~> 0.1.4'
 
   platforms :mri_19 do
