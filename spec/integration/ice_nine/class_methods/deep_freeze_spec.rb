@@ -142,6 +142,44 @@ describe IceNine, '.deep_freeze' do
     end
   end
 
+  context 'with a String' do
+    let(:value) { '' }
+
+    before do
+      value.instance_eval { @a = '1' }
+    end
+
+    it 'returns the object' do
+      should be(value)
+    end
+
+    it 'freezes the object' do
+      expect { subject }.should change(value, :frozen?).from(false).to(true)
+    end
+
+    it 'freezes the instance variables in the String' do
+      subject.instance_variable_get(:@a).should be_frozen
+    end
+
+    context 'with a circular reference' do
+      before do
+        value.instance_eval { @self = self }
+      end
+
+      it 'returns the object' do
+        should be(value)
+      end
+
+      it 'freezes the object' do
+        expect { subject }.should change(value, :frozen?).from(false).to(true)
+      end
+
+      it 'freezes the instance variables in the String' do
+        subject.instance_variable_get(:@a).should be_frozen
+      end
+    end
+  end
+
   context 'with a Struct' do
     let(:value) { klass.new(%w[ 1 2 ]) }
     let(:klass) { Struct.new(:a)       }
