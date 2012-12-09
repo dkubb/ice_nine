@@ -22,6 +22,16 @@ object = Object.new
 object.deep_freeze
 ```
 
+If you want avoid deep_freeze some object in Namespace, you can use
+`IceNine.no_freeze` class method.
+
+By example if you want avoid not freeze the namespace RSpec and Mocha,
+you can do
+
+```ruby
+IceNine.no_freeze([RSpec, Mocha])
+```
+
 ## Installation
 
 With Rubygems:

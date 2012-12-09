@@ -229,3 +229,23 @@ describe IceNine, '.deep_freeze' do
     end
   end
 end
+
+describe IceNine, 'no_freeze' do
+  module Mocha;
+    class Object; end
+  end
+
+  let(:object) { IceNine }
+  let(:value)  { Mocha }
+
+  subject { object.no_freeze(value) }
+
+  it 'avoid freeze class in this namespace' do
+    subject
+    IceNine.deep_freeze(Mocha::Object.new).should_not be_frozen
+  end
+
+  after do
+    IceNine::Freezer.send(:remove_const, :Mocha)
+  end
+end
