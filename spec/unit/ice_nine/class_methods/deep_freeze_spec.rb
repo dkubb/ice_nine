@@ -45,3 +45,51 @@ describe IceNine, '.deep_freeze' do
     end
   end
 end
+
+describe IceNine, '.no_freeze' do
+  module Mocha; end
+  module Foo; end
+
+  let(:object) { IceNine }
+  let(:value)  { Mocha }
+
+  subject { object.no_freeze(*value) }
+
+  context "with one constant args pass" do
+    before do
+      IceNine::Freezer.constants.should_not include(:Mocha)
+    end
+
+    it 'mark namespace like NoFreeze' do
+      subject
+      IceNine::Freezer.constants.should include(:Mocha)
+    end
+
+    after do
+      IceNine::Freezer.send(:remove_const, :Mocha)
+    end
+  end
+
+  context "with several namespace pass in args" do
+
+    let(:value)  { [Mocha, Foo] }
+
+    before do
+      IceNine::Freezer.constants.should_not include(:Mocha)
+      IceNine::Freezer.constants.should_not include(:Foo)
+    end
+
+    it 'mark namespace like NoFreeze' do
+      subject
+      IceNine::Freezer.constants.should include(:Mocha)
+      IceNine::Freezer.constants.should include(:Foo)
+    end
+
+    after do
+      IceNine::Freezer.send(:remove_const, :Mocha)
+      IceNine::Freezer.send(:remove_const, :Foo)
+    end
+
+  end
+
+end

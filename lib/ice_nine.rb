@@ -42,4 +42,11 @@ module IceNine
     end
   end
 
+  def self.no_freeze(*mods)
+    mods.each do |mod|
+      klass = Class.new(IceNine::Freezer::NoFreeze)
+      IceNine::Freezer.const_set(mod.to_s, klass)
+    end
+  end
+
 end # module IceNine
