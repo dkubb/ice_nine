@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :yard do
-  gem 'yard',      '~> 0.8.3'
   gem 'redcarpet', '~> 2.2.2', :platforms => [ :mri, :rbx ]
 end
 
@@ -21,7 +20,7 @@ end
 
 platform :jruby do
   group :jruby do
-    gem 'jruby-openssl', '~> 0.7.4'
+    gem 'jruby-openssl', '~> 0.8.2'
   end
 end
 
@@ -54,6 +53,6 @@ group :metrics do
   end
 
   platforms :rbx do
-    gem 'pelusa', '~> 0.2.1'
+    gem 'pelusa', '~> 0.2.2'
   end
 end
