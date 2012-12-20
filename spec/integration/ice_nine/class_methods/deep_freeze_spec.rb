@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'ice_nine'
+require 'delegate'
 
 describe IceNine, '.deep_freeze' do
   subject { object.deep_freeze(value) }
@@ -211,6 +212,44 @@ describe IceNine, '.deep_freeze' do
 
       it 'freezes each value in the Struct' do
         subject.values.select(&:frozen?).should == subject.values
+      end
+    end
+  end
+
+  context 'with an SimpleDelegator' do
+    let(:value) { SimpleDelegator.new(nil) }
+
+    before do
+      value.instance_eval { @a = '1' }
+    end
+
+    it 'returns the object' do
+      should be(value)
+    end
+
+    it 'freezes the object' do
+      expect { subject }.should change(value, :frozen?).from(false).to(true)
+    end
+
+    it 'freezes the instance variables in the SimpleDelegator' do
+      subject.instance_variable_get(:@a).should be_frozen
+    end
+
+    context 'with a circular reference' do
+      before do
+        value.instance_eval { @self = self }
+      end
+
+      it 'returns the object' do
+        should be(value)
+      end
+
+      it 'freezes the object' do
+        expect { subject }.should change(value, :frozen?).from(false).to(true)
+      end
+
+      it 'freezes the instance variables in the SimpleDelegator' do
+        subject.instance_variable_get(:@a).should be_frozen
       end
     end
   end
