@@ -1,12 +1,14 @@
-# Ice Nine
+ice_nine
+========
 
-Deep Freeze Ruby Objects
+Deep freeze ruby objects
 
 [![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.png)](https://travis-ci.org/dkubb/ice_nine)
 [![Dependency Status](https://gemnasium.com/dkubb/ice_nine.png)](https://gemnasium.com/dkubb/ice_nine)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dkubb/ice_nine)
 
-## Usage
+Examples
+--------
 
 ```ruby
 # Freezes most objects
@@ -24,7 +26,8 @@ object = Object.new
 object.deep_freeze
 ```
 
-## Installation
+Installation
+------------
 
 With Rubygems:
 
@@ -46,7 +49,8 @@ $ irb -rubygems
 => true
 ```
 
-## Note on Patches/Pull Requests
+Contributing
+-------------
 
 * If you want your code merged into the mainline, please discuss the proposed changes with me before doing any work on it. This library is still in early development, and it may not always be clear the direction it is going. Some features may not be appropriate yet, may need to be deferred until later when the foundation for them is laid, or may be more applicable in a plugin.
 * Fork the project.
@@ -58,6 +62,7 @@ $ irb -rubygems
   metrics for the code to be merged.
 * Send me a pull request. Bonus points for topic branches.
 
-## Copyright
+Copyright
+---------
 
 Copyright &copy; 2012 Dan Kubb. See LICENSE for details.
