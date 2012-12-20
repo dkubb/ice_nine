@@ -2,7 +2,9 @@
 
 Deep Freeze Ruby Objects
 
-[![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.png)](http://travis-ci.org/dkubb/ice_nine)
+[![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.png)](https://travis-ci.org/dkubb/ice_nine)
+[![Dependency Status](https://gemnasium.com/dkubb/ice_nine.png)](https://gemnasium.com/dkubb/ice_nine)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dkubb/ice_nine)
 
 ## Usage
 
