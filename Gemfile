@@ -9,25 +9,25 @@ group :yard do
 end
 
 group :guard do
-  gem 'guard',         '~> 1.5.4'
+  gem 'guard',         '~> 1.6.1'
   gem 'guard-bundler', '~> 1.0.0'
   gem 'guard-rspec',   '~> 1.2.1'
-end
 
-group :benchmarks do
-  gem 'rbench', '~> 0.2.3'
-end
+  # file system change event handling
+  gem 'rb-fchange', '~> 0.0.6', :require => false
+  gem 'rb-fsevent', '~> 0.9.3', :require => false
+  gem 'rb-inotify', '~> 0.8.8', :require => false, :git => 'https://github.com/nex3/rb-inotify'
 
-platform :jruby do
-  group :jruby do
-    gem 'jruby-openssl', '~> 0.8.2'
-  end
+  # notification handling
+  gem 'libnotify',               '~> 0.8.0', :require => false
+  gem 'rb-notifu',               '~> 0.0.4', :require => false
+  gem 'terminal-notifier-guard', '~> 1.5.3', :require => false
 end
 
 group :metrics do
   gem 'flay',      '~> 1.4.3'
   gem 'flog',      '~> 2.5.3'
-  gem 'reek',      '~> 1.2.8', :github => 'dkubb/reek'
+  gem 'reek',      '~> 1.2.8', :git => 'https://github.com/dkubb/reek.git'
   gem 'roodi',     '~> 2.1.0'
   gem 'yardstick', '~> 0.8.0'
 
@@ -48,11 +48,21 @@ group :metrics do
     gem 'ruby2ruby',   '= 1.2.2'   # for heckle
   end
 
-  platforms :ruby_19 do
+  platforms :mri_19 do
     gem 'simplecov', '~> 0.7.1'
   end
 
   platforms :rbx do
     gem 'pelusa', '~> 0.2.2'
+  end
+end
+
+group :benchmarks do
+  gem 'rbench', '~> 0.2.3'
+end
+
+platform :jruby do
+  group :jruby do
+    gem 'jruby-openssl', '~> 0.8.2'
   end
 end
