@@ -21,7 +21,7 @@ module IceNine
       def self.deep_freeze(range)
         IceNine.deep_freeze(range.begin)
         IceNine.deep_freeze(range.end)
-        super range
+        super
       end
 
     end # class Range
