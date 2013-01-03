@@ -21,7 +21,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes the instance variables in the Object' do
@@ -38,7 +38,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes the instance variables in the Object' do
@@ -55,7 +55,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes each element in the Array' do
@@ -72,7 +72,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes each element in the Array' do
@@ -89,7 +89,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes each key in the Hash' do
@@ -110,7 +110,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes each key in the Hash' do
@@ -131,7 +131,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freeze the first object in the Range' do
@@ -155,7 +155,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes the instance variables in the String' do
@@ -172,7 +172,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes the instance variables in the String' do
@@ -190,7 +190,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes each value in the Struct' do
@@ -207,7 +207,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes each value in the Struct' do
@@ -228,7 +228,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freezes the instance variables in the SimpleDelegator' do
@@ -245,7 +245,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the object' do
-        expect { subject }.should change(value, :frozen?).from(false).to(true)
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
       end
 
       it 'freezes the instance variables in the SimpleDelegator' do
@@ -263,7 +263,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'does not freeze the object' do
-        expect { subject }.should_not change(value, :frozen?).from(false)
+        expect { subject }.to_not change(value, :frozen?).from(false)
       end
     end
   end

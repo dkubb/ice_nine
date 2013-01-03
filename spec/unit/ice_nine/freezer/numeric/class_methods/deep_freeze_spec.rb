@@ -19,7 +19,7 @@ describe IceNine::Freezer::Numeric, '.deep_freeze' do
       end
 
       it 'does not freeze the object' do
-        expect { subject }.should_not change(value, :frozen?).from(false)
+        expect { subject }.to_not change(value, :frozen?).from(false)
       end
     end
   end

@@ -14,6 +14,6 @@ describe Object, '#deep_freeze' do
   end
 
   it 'freezes the object' do
-    expect { subject }.should change(object, :frozen?).from(false).to(true)
+    expect { subject }.to change(object, :frozen?).from(false).to(true)
   end
 end

@@ -16,7 +16,7 @@ describe IceNine::Freezer::Range, '.deep_freeze' do
     end
 
     it 'freezes the object' do
-      expect { subject }.should change(value, :frozen?).from(false).to(true)
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
     it 'freeze the first object in the Range' do
