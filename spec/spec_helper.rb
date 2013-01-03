@@ -1,5 +1,16 @@
 # encoding: utf-8
 
+if ENV['COVERAGE'] == 'true'
+  require 'simplecov'
+
+  SimpleCov.start do
+    command_name     'spec:unit'
+    add_filter       'config'
+    add_filter       'spec'
+    minimum_coverage 100
+  end
+end
+
 require 'spec'
 require 'spec/autorun'
 
@@ -9,14 +20,6 @@ Dir[File.expand_path('../{support,shared}/**/*.rb', __FILE__)].each do |file|
 end
 
 Spec::Runner.configure do |config|
-end
-
-if RUBY_VERSION >= '1.9' and ENV['COVERAGE'] == 'true'
-  require 'simplecov'
-  SimpleCov.start do
-    command_name 'spec:unit'
-    add_filter   'spec'
-  end
 end
 
 # change the heckle timeout to be 5 seconds
