@@ -11,13 +11,13 @@ if ENV['COVERAGE'] == 'true'
   end
 end
 
-require 'spec'
-require 'spec/autorun'
+require 'rspec'
+require 'rspec/autorun'
 
 # require spec support files and shared behavior
 Dir[File.expand_path('../{support,shared}/**/*.rb', __FILE__)].each do |file|
   require file
 end
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
 end
