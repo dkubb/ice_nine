@@ -13,6 +13,10 @@ rvm:
   - ree
   - ruby-head
   - jruby-head
+matrix:
+  allow_failures:
+    - rvm: 1.9.3
+    - rvm: rbx-19mode
 notifications:
   email:
     - dan.kubb@gmail.com
