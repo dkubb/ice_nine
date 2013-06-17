@@ -1,15 +1,15 @@
 # encoding: utf-8
 
-begin
-  require 'flay'
-  require 'yaml'
+namespace :metrics do
+  begin
+    require 'flay'
+    require 'yaml'
 
-  config      = YAML.load_file(File.expand_path('../../../config/flay.yml', __FILE__)).freeze
-  threshold   = config.fetch('threshold').to_i
-  total_score = config.fetch('total_score').to_f
-  files       = Flay.expand_dirs_to_files(config.fetch('path', 'lib')).sort
+    config      = YAML.load_file(File.expand_path('../../../config/flay.yml', __FILE__)).freeze
+    threshold   = config.fetch('threshold').to_i
+    total_score = config.fetch('total_score').to_f
+    files       = Flay.expand_dirs_to_files(config.fetch('path', 'lib')).sort
 
-  namespace :metrics do
     # original code by Marty Andrews:
     # http://blog.martyandrews.net/2009/05/enforcing-ruby-code-quality.html
     desc 'Analyze for code duplication'
@@ -37,9 +37,9 @@ begin
         raise "#{flay.masses.size} chunks of code have a duplicate mass > #{threshold}"
       end
     end
-  end
-rescue LoadError
-  task :flay do
-    $stderr.puts 'Flay is not available. In order to run flay, you must: gem install flay'
+  rescue LoadError
+    task :flay do
+      $stderr.puts 'Flay is not available. In order to run flay, you must: gem install flay'
+    end
   end
 end
