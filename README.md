@@ -65,4 +65,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 Copyright
 ---------
 
-Copyright &copy; 2012 Dan Kubb. See LICENSE for details.
+Copyright &copy; 2012-2013 Dan Kubb. See LICENSE for details.
