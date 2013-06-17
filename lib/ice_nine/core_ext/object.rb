@@ -20,7 +20,7 @@ module IceNine
         IceNine.deep_freeze(self)
       end
 
-    end #module Object
+    end # module Object
   end # module CoreExt
 end # module IceNine
 
