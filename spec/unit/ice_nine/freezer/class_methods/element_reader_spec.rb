@@ -107,4 +107,32 @@ describe IceNine::Freezer, '.[]' do
       should be(freezer)
     end
   end
+
+  describe 'when the module has a name of another freezer under the ancestor' do
+    let(:freezer)  { Class.new(IceNine::Freezer::Hash) }
+    let(:mod)      { Mash::State                       }
+
+    before :all do
+      module ::Mash
+        class State; end
+      end
+    end
+
+    after :all do
+      ::Mash.send(:remove_const, :State)
+      Object.send(:remove_const, :Mash)
+    end
+
+    around do |example|
+      object.const_set(:Mash, freezer)
+
+      example.run
+
+      object.send(:remove_const, :Mash)
+    end
+
+    it 'returns the freezer' do
+      should be(freezer)
+    end
+  end
 end
