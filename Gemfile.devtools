@@ -28,7 +28,6 @@ group :guard do
 end
 
 group :metrics do
-  gem 'backports', '~> 3.3', '>= 3.3.2'
   gem 'coveralls', '~> 0.6.7'
   gem 'flay',      '~> 2.3.0'
   gem 'flog',      '~> 4.1.0'
