@@ -12,19 +12,19 @@ module IceNine
     #    logic_which_may_recursively_call_the_containing_method
     #  end
     #
-    # @param [Integer] object_id
+    # @param [Integer] caller_object_id
     #
     # @return [Object]
     #
     # @api public
-    def self.guard(object_id)
+    def self.guard(caller_object_id)
       objects = guarded_objects(caller.first)
-      return if objects.include?(object_id)
+      return if objects.include?(caller_object_id)
       begin
-        objects << object_id
+        objects << caller_object_id
         yield
       ensure
-        objects.delete(object_id)
+        objects.delete(caller_object_id)
       end
     end
 
