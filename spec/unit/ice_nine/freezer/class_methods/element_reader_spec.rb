@@ -45,12 +45,12 @@ describe IceNine::Freezer, '.[]' do
       Object.send(:remove_const, :Application)
     end
 
-    before do
+    around do |example|
       namespace.const_set(:User, freezer)
       object.const_set(:Application, namespace)
-    end
 
-    after do
+      example.run
+
       namespace.send(:remove_const, :User)
       object.send(:remove_const, :Application)
     end
