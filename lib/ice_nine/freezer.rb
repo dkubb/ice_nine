@@ -62,9 +62,7 @@ module IceNine
     #
     # @api private
     def self.const_lookup(namespace)
-      if const_defined?(namespace, *SKIP_ANCESTORS)
-        const_get(namespace, *SKIP_ANCESTORS)
-      end
+      const_get(namespace) if const_defined?(namespace, *SKIP_ANCESTORS)
     end
 
     class << self
