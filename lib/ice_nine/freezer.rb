@@ -10,10 +10,12 @@ module IceNine
 
     # Cache the Freezer classes returned for each type
     @freezer_cache = Hash.new do |cache, mod|
+      cache[mod] = nil
       mod.ancestors.each do |ancestor|
         freezer = find(ancestor.name.to_s)
         break cache[mod] = freezer if freezer
       end
+      cache[mod]
     end
 
     # Look up the Freezer descendant by object type

@@ -77,11 +77,19 @@ describe IceNine::Freezer, '.[]' do
     end
   end
 
-  describe 'when the module is anonymous' do
+  describe 'when the module is an anonymous class' do
     let(:mod) { Class.new }
 
     it 'returns the freezer' do
       should be(freezer)
+    end
+  end
+
+  describe 'when the module is an anonymous module' do
+    let(:mod) { Module.new }
+
+    it 'returns the freezer' do
+      should be_nil
     end
   end
 end
