@@ -15,6 +15,14 @@ rvm:
   - rbx-18mode
   - rbx-19mode
 notifications:
-  irc: "irc.freenode.org#datamapper"
+  irc:
+    channels:
+      - irc.freenode.org#rom-rb
+    on_success: never
+    on_failure: change
   email:
-    - dan.kubb@gmail.com
+    recipients:
+      - dan.kubb@gmail.com
+    on_success: never
+    on_failure: change
+
