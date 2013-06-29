@@ -92,4 +92,19 @@ describe IceNine::Freezer, '.[]' do
       should be_nil
     end
   end
+
+  describe 'when the module is under a freezer namespace' do
+    let(:mod)     { Hash::Test             }
+    let(:freezer) { IceNine::Freezer::Hash }
+
+    around do |example|
+      class Hash::Test; end
+      example.run
+      Hash.send(:remove_const, :Test)
+    end
+
+    it 'returns the freezer' do
+      should be(freezer)
+    end
+  end
 end
