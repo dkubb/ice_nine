@@ -5,9 +5,6 @@ module IceNine
   # The default class that handles freezing objects
   class Freezer
 
-    # Configure const_defined? to not search ancestors
-    SKIP_ANCESTORS = (RUBY_VERSION < '1.9' ? [] : [false]).freeze
-
     # Cache the Freezer classes returned for each type
     @freezer_cache = Hash.new do |cache, mod|
       cache[mod] = nil
@@ -62,7 +59,7 @@ module IceNine
     #
     # @api private
     def self.const_lookup(namespace)
-      const_get(namespace) if const_defined?(namespace, *SKIP_ANCESTORS)
+      const_get(namespace) if const_defined?(namespace, false)
     end
 
     class << self
