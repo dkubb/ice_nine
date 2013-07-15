@@ -20,10 +20,11 @@ module IceNine
       # @api public
       def self.deep_freeze(hash)
         IceNine.deep_freeze(hash.default_proc || hash.default)
-        super hash.each { |key, value|
+        hash.each do |key, value|
           IceNine.deep_freeze(key)
           IceNine.deep_freeze(value)
-        }
+        end
+        super
       end
 
     end # class Hash

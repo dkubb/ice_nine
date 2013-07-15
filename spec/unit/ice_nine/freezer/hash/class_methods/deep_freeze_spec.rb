@@ -33,7 +33,7 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
       expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
-    if RUBY_VERSION >= '1.9' and RUBY_ENGINE == 'rbx'
+    if RUBY_VERSION >= '1.9' && RUBY_ENGINE == 'rbx'
       it 'does not freeze the Hash state' do
         expect(subject.instance_variable_get(:@state)).to_not be_frozen
       end
@@ -69,7 +69,7 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
       expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
-    if RUBY_VERSION >= '1.9' and RUBY_ENGINE == 'rbx'
+    if RUBY_VERSION >= '1.9' && RUBY_ENGINE == 'rbx'
       it 'does not freeze the Hash state' do
         expect(subject.instance_variable_get(:@state)).to_not be_frozen
       end

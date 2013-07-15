@@ -108,9 +108,9 @@ describe IceNine::Freezer, '.[]' do
     end
   end
 
-  describe 'when the module has a name of another freezer under the ancestor' do
-    let(:freezer)  { Class.new(IceNine::Freezer::Hash) }
-    let(:mod)      { Mash::State                       }
+  describe 'when the module has a name of a freezer in another namespace' do
+    let(:mod)     { Mash::State                       }
+    let(:freezer) { Class.new(IceNine::Freezer::Hash) }
 
     before :all do
       module ::Mash
