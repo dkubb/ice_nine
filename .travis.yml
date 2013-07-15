@@ -32,9 +32,5 @@ matrix:
     - rvm: jruby-head
       env: JRUBY_OPTS="$JRUBY_OPTS --debug"
   allow_failures:
-    # mutant fails
-    - rvm: 1.9.3
-    - rvm: 2.0.0
-    - rvm: rbx-19mode
     # broken on travis
     - rvm: ruby-head
