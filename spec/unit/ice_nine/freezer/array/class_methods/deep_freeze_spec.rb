@@ -20,7 +20,7 @@ describe IceNine::Freezer::Array, '.deep_freeze' do
     end
 
     it 'freezes each entry in the Array' do
-      subject.select(&:frozen?).should == subject
+      expect(subject.select(&:frozen?)).to eql(subject)
     end
   end
 end

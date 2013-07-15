@@ -23,7 +23,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the instance variables in the Object' do
-      subject.instance_variable_get(:@a).should be_frozen
+      expect(subject.instance_variable_get(:@a)).to be_frozen
     end
   end
 
@@ -41,7 +41,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'does not freeze the instance variables in the Object' do
-      subject.instance_variable_get(:@a).should_not be_frozen
+      expect(subject.instance_variable_get(:@a)).to_not be_frozen
     end
   end
 end

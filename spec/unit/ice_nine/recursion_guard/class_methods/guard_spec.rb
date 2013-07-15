@@ -8,7 +8,7 @@ describe IceNine::RecursionGuard, '.guard' do
 
   let(:object)       { IceNine::RecursionGuard }
   let(:object_id)    { 1                       }
-  let(:return_value) { stub('return_value')    }
+  let(:return_value) { double('return_value')  }
 
   context 'when the block is not recursive' do
     def block
@@ -22,7 +22,7 @@ describe IceNine::RecursionGuard, '.guard' do
 
   context 'when the block is recursive' do
     def block
-      subject.should be_nil
+      expect(subject).to be_nil
       return_value
     end
 

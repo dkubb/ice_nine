@@ -22,24 +22,24 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
     end
 
     it 'freezes the default proc' do
-      subject.default_proc.should be_frozen
+      expect(subject.default_proc).to be_frozen
     end
 
     it 'freezes each key in the Hash' do
-      subject.keys.select(&:frozen?).should == subject.keys
+      expect(subject.keys.select(&:frozen?)).to eql(subject.keys)
     end
 
     it 'freezes each value in the Hash' do
-      subject.values.select(&:frozen?).should == subject.values
+      expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
     if RUBY_VERSION >= '1.9' and RUBY_ENGINE == 'rbx'
       it 'does not freeze the Hash state' do
-        subject.instance_variable_get(:@state).should_not be_frozen
+        expect(subject.instance_variable_get(:@state)).to_not be_frozen
       end
 
       it 'does not freeze the Hash entries' do
-        subject.instance_variable_get(:@entries).should_not be_frozen
+        expect(subject.instance_variable_get(:@entries)).to_not be_frozen
       end
     end
   end
@@ -58,24 +58,24 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
     end
 
     it 'freezes the default value' do
-      subject.default.should be_frozen
+      expect(subject.default).to be_frozen
     end
 
     it 'freezes each key in the Hash' do
-      subject.keys.select(&:frozen?).should == subject.keys
+      expect(subject.keys.select(&:frozen?)).to eql(subject.keys)
     end
 
     it 'freezes each value in the Hash' do
-      subject.values.select(&:frozen?).should == subject.values
+      expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
     if RUBY_VERSION >= '1.9' and RUBY_ENGINE == 'rbx'
       it 'does not freeze the Hash state' do
-        subject.instance_variable_get(:@state).should_not be_frozen
+        expect(subject.instance_variable_get(:@state)).to_not be_frozen
       end
 
       it 'does not freeze the Hash entries' do
-        subject.instance_variable_get(:@entries).should_not be_frozen
+        expect(subject.instance_variable_get(:@entries)).to_not be_frozen
       end
     end
   end

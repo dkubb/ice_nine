@@ -20,11 +20,11 @@ describe IceNine::Freezer::Range, '.deep_freeze' do
     end
 
     it 'freeze the first object in the Range' do
-      subject.begin.should be_frozen
+      expect(subject.begin).to be_frozen
     end
 
     it 'freeze the last object in the Range' do
-      subject.end.should be_frozen
+      expect(subject.end).to be_frozen
     end
   end
 end

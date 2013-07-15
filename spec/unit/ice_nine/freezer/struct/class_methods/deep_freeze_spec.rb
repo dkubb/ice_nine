@@ -21,7 +21,7 @@ describe IceNine::Freezer::Struct, '.deep_freeze' do
     end
 
     it 'freezes each value in the Struct' do
-      subject.values.select(&:frozen?).should == subject.values
+      expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
   end
 end

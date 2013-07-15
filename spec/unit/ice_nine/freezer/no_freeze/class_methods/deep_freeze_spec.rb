@@ -7,7 +7,7 @@ describe IceNine::Freezer::NoFreeze, '.deep_freeze' do
    subject { object.deep_freeze(value) }
 
   let(:object) { described_class }
-  let(:value)  { stub('value')   }
+  let(:value)  { double('value') }
 
   it 'returns the object' do
     should be(value)

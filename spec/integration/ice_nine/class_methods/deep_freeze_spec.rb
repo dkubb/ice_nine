@@ -25,7 +25,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the instance variables in the Object' do
-      subject.instance_variable_get(:@a).should be_frozen
+      expect(subject.instance_variable_get(:@a)).to be_frozen
     end
 
     context 'with a circular reference' do
@@ -42,7 +42,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the instance variables in the Object' do
-        subject.instance_variable_get(:@a).should be_frozen
+        expect(subject.instance_variable_get(:@a)).to be_frozen
       end
     end
   end
@@ -59,7 +59,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes each element in the Array' do
-      subject.select(&:frozen?).should == subject
+      expect(subject.select(&:frozen?)).to eql(subject)
     end
 
     context 'with a circular reference' do
@@ -76,7 +76,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes each element in the Array' do
-        subject.select(&:frozen?).should == subject
+        expect(subject.select(&:frozen?)).to eql(subject)
       end
     end
   end
@@ -93,11 +93,11 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes each key in the Hash' do
-      subject.keys.select(&:frozen?).should == subject.keys
+      expect(subject.keys.select(&:frozen?)).to eql(subject.keys)
     end
 
     it 'freezes each value in the Hash' do
-      subject.values.select(&:frozen?).should == subject.values
+      expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
     context 'with a circular reference' do
@@ -114,11 +114,11 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes each key in the Hash' do
-        subject.keys.select(&:frozen?).should == subject.keys
+        expect(subject.keys.select(&:frozen?)).to eql(subject.keys)
       end
 
       it 'freezes each value in the Hash' do
-        subject.values.select(&:frozen?).should == subject.values
+        expect(subject.values.select(&:frozen?)).to eql(subject.values)
       end
     end
   end
@@ -135,11 +135,11 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freeze the first object in the Range' do
-      subject.begin.should be_frozen
+      expect(subject.begin).to be_frozen
     end
 
     it 'freeze the last object in the Range' do
-      subject.end.should be_frozen
+      expect(subject.end).to be_frozen
     end
   end
 
@@ -159,7 +159,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the instance variables in the String' do
-      subject.instance_variable_get(:@a).should be_frozen
+      expect(subject.instance_variable_get(:@a)).to be_frozen
     end
 
     context 'with a circular reference' do
@@ -176,7 +176,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the instance variables in the String' do
-        subject.instance_variable_get(:@a).should be_frozen
+        expect(subject.instance_variable_get(:@a)).to be_frozen
       end
     end
   end
@@ -194,7 +194,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes each value in the Struct' do
-      subject.values.select(&:frozen?).should == subject.values
+      expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
     context 'with a circular reference' do
@@ -211,7 +211,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes each value in the Struct' do
-        subject.values.select(&:frozen?).should == subject.values
+        expect(subject.values.select(&:frozen?)).to eql(subject.values)
       end
     end
   end
@@ -232,7 +232,7 @@ describe IceNine, '.deep_freeze' do
     end
 
     it 'freezes the instance variables in the SimpleDelegator' do
-      subject.instance_variable_get(:@a).should be_frozen
+      expect(subject.instance_variable_get(:@a)).to be_frozen
     end
 
     context 'with a circular reference' do
@@ -249,7 +249,7 @@ describe IceNine, '.deep_freeze' do
       end
 
       it 'freezes the instance variables in the SimpleDelegator' do
-        subject.instance_variable_get(:@a).should be_frozen
+        expect(subject.instance_variable_get(:@a)).to be_frozen
       end
     end
   end
