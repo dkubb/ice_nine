@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'devtools/spec_helper'
-
 if ENV['COVERAGE'] == 'true'
   require 'simplecov'
   require 'coveralls'
@@ -12,19 +10,18 @@ if ENV['COVERAGE'] == 'true'
   ]
 
   SimpleCov.start do
-    command_name     'spec:unit'
-    add_filter       'config'
-    add_filter       'spec'
+    command_name 'spec:unit'
+
+    add_filter 'config'
+    add_filter 'spec'
+    add_filter 'vendor'
+
     minimum_coverage 100
   end
 end
 
 require 'ice_nine'
-
-# Require spec support files and shared behavior
-Dir[File.expand_path('../{support,shared}/**/*.rb', __FILE__)].each do |file|
-  require file.chomp('.rb')
-end
+require 'devtools/spec_helper'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expect_with|
