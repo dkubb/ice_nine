@@ -3,13 +3,23 @@
 module IceNine
 
   # Protect against infinite recursion
-  module RecursionGuard
+  class RecursionGuard
+
+    # Initialize a recursion guard
+    #
+    # @return [undefined]
+    #
+    # @api public
+    def initialize
+      @object_ids = Set.new
+    end
 
     # Guard against recursively calling a block with the same object
     #
     # @example
-    #  IceNine::RecursionGuard.guard(object_id) do
-    #    logic_which_may_recursively_call_the_containing_method
+    #  recursion_guard = IceNine::RecursionGuard.new
+    #  recursion_guard.guard(object_id) do
+    #    logic_which_may_be_recursively_called_with_object_id(recursion_guard)
     #  end
     #
     # @param [Integer] caller_object_id
@@ -17,29 +27,15 @@ module IceNine
     # @return [Object]
     #
     # @api public
-    def self.guard(caller_object_id)
-      objects = guarded_objects(caller.first)
-      return if objects.include?(caller_object_id)
+    def guard(caller_object_id)
+      return if @object_ids.include?(caller_object_id)
       begin
-        objects << caller_object_id
+        @object_ids << caller_object_id
         yield
       ensure
-        objects.delete(caller_object_id)
+        @object_ids.delete(caller_object_id)
       end
     end
-
-    # The current objects guarded at a specific location in the source
-    #
-    # @param [String] location
-    #
-    # @return [Set<Integer>]
-    #
-    # @api private
-    def self.guarded_objects(location)
-      Thread.current[location] ||= Set.new
-    end
-
-    private_class_method :guarded_objects
 
   end # RecursionGuard
 end # module IceNine

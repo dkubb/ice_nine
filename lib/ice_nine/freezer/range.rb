@@ -14,13 +14,14 @@ module IceNine
       #   range.end.frozen?    # => true
       #
       # @param [Range] range
+      # @param [RecursionGuard] recursion_guard
       #
       # @return [Range]
       #
       # @api public
-      def self.deep_freeze(range)
-        IceNine.deep_freeze(range.begin)
-        IceNine.deep_freeze(range.end)
+      def self.deep_freeze(range, recursion_guard = RecursionGuard.new)
+        IceNine.deep_freeze(range.begin, recursion_guard)
+        IceNine.deep_freeze(range.end, recursion_guard)
         super
       end
 

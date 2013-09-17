@@ -13,12 +13,16 @@ module IceNine
       #   array.select(&:frozen?)  # => ['a', 'b', 'c']
       #
       # @param [Array] array
+      # @param [RecursionGuard] recursion_guard
       #
       # @return [Array]
       #
       # @api public
-      def self.deep_freeze(array)
-        super array.each { |entry| IceNine.deep_freeze(entry) }
+      def self.deep_freeze(array, recursion_guard = RecursionGuard.new)
+        array.each do |entry|
+          IceNine.deep_freeze(entry, recursion_guard)
+        end
+        super
       end
 
     end # class Array

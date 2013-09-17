@@ -32,14 +32,15 @@ module IceNine
   #   object = IceNine.deep_freeze(object)
   #
   # @param [Object] object
+  # @param [RecursionGuard] recursion_guard
   #
   # @return [Object]
   #
   # @api public
-  def self.deep_freeze(object)
+  def self.deep_freeze(object, recursion_guard = RecursionGuard.new)
     return object if object.frozen?
-    RecursionGuard.guard(object.__id__) do
-      Freezer[object.class].deep_freeze(object)
+    recursion_guard.guard(object.__id__) do
+      Freezer[object.class].deep_freeze(object, recursion_guard)
     end
   end
 
