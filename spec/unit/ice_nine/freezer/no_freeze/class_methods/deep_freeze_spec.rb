@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'ice_nine/freezer/no_freeze'
 
 describe IceNine::Freezer::NoFreeze, '.deep_freeze' do
-   subject { object.deep_freeze(value) }
+  subject { object.deep_freeze(value) }
 
   let(:object) { described_class }
   let(:value)  { double('value') }

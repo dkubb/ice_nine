@@ -4,10 +4,10 @@ require 'spec_helper'
 require 'ice_nine'
 require 'ice_nine/core_ext/object'
 
-describe Object, '#deep_freeze' do
+describe IceNine::CoreExt::Object, '#deep_freeze' do
   subject { object.deep_freeze }
 
-  let(:object) { described_class.new }
+  let(:object) { Object.new.extend(IceNine::CoreExt::Object) }
 
   it 'returns the object' do
     should be(object)
