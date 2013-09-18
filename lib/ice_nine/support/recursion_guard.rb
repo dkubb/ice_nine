@@ -29,10 +29,8 @@ module IceNine
     # @api public
     def guard(caller_object_id)
       return if @object_ids.include?(caller_object_id)
-      begin
-        @object_ids << caller_object_id
-        yield
-      end
+      @object_ids << caller_object_id
+      yield
     end
 
   end # RecursionGuard
