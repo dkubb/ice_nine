@@ -32,8 +32,6 @@ module IceNine
       begin
         @object_ids << caller_object_id
         yield
-      ensure
-        @object_ids.delete(caller_object_id)
       end
     end
 
