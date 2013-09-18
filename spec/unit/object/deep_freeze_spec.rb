@@ -7,7 +7,7 @@ require 'ice_nine/core_ext/object'
 describe Object, '#deep_freeze' do
   subject { object.deep_freeze }
 
-  let(:object) { Object.new }
+  let(:object) { described_class.new }
 
   it 'returns the object' do
     should be(object)
