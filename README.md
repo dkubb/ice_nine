@@ -19,13 +19,13 @@ Examples
 --------
 
 ```ruby
-# Freezes most objects
+# Deep freezes most kinds of objects
 hash   = IceNine.deep_freeze('a' => '1')
 array  = IceNine.deep_freeze([ 'a', 'b', 'c' ])
 range  = IceNine.deep_freeze('a'..'z')
 struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
 object = IceNine.deep_freeze(Object.new)
-user   = IceNine.deep_freeze(Application::User.new('dkubb'))
+user   = IceNine.deep_freeze(User.new(name: 'dkubb'))
 
 # Add core extension for Object#deep_freeze (not required by default)
 require 'ice_nine/core_ext/object'
