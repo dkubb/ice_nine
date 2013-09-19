@@ -14,12 +14,6 @@ describe IceNine::Freezer::TrueClass, '.deep_freeze' do
   context 'with a true object' do
     let(:value) { true }
 
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'does not freeze the object' do
-      expect { subject }.to_not change(value, :frozen?).from(false)
-    end
+    it_behaves_like 'IceNine::Freezer::NoFreeze.deep_freeze'
   end
 end

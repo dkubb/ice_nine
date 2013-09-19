@@ -5,15 +5,9 @@ require 'ice_nine'
 require 'ice_nine/core_ext/object'
 
 describe Object, '#deep_freeze' do
-  subject { object.deep_freeze }
+  subject { value.deep_freeze }
 
-  let(:object) { described_class.new }
+  let(:value) { described_class.new }
 
-  it 'returns the object' do
-    should be(object)
-  end
-
-  it 'freezes the object' do
-    expect { subject }.to change(object, :frozen?).from(false).to(true)
-  end
+  it_behaves_like 'IceNine::Freezer::Object.deep_freeze'
 end
