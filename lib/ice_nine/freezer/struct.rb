@@ -6,5 +6,5 @@ module IceNine
     # A freezer class for handling Struct objects
     class Struct < Array; end
 
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

@@ -66,5 +66,5 @@ module IceNine
       protected :const_lookup
     end
 
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

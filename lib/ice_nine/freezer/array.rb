@@ -25,6 +25,6 @@ module IceNine
         super
       end
 
-    end # class Array
-  end # class Freezer
-end # module IceNine
+    end # Array
+  end # Freezer
+end # IceNine

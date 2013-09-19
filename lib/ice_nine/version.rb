@@ -5,4 +5,4 @@ module IceNine
   # Gem version
   VERSION = '0.10.0'.freeze
 
-end # module IceNine
+end # IceNine

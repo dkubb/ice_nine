@@ -34,4 +34,4 @@ module IceNine
     end
 
   end # RecursionGuard
-end # module IceNine
+end # IceNine

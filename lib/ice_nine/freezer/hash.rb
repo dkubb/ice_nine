@@ -28,6 +28,6 @@ module IceNine
         super
       end
 
-    end # class Hash
-  end # class Freezer
-end # module IceNine
+    end # Hash
+  end # Freezer
+end # IceNine

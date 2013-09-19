@@ -21,6 +21,6 @@ module IceNine
         object
       end
 
-    end # class NoFreeze
-  end # class Freezer
-end # module IceNine
+    end # NoFreeze
+  end # Freezer
+end # IceNine

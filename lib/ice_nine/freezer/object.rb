@@ -41,8 +41,8 @@ module IceNine
 
       private_class_method :freeze_instance_variables
 
-    end # class Object
+    end # Object
 
     BasicObject = Object
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

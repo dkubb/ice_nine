@@ -20,9 +20,9 @@ module IceNine
         IceNine.deep_freeze(self)
       end
 
-    end # module Object
-  end # module CoreExt
-end # module IceNine
+    end # Object
+  end # CoreExt
+end # IceNine
 
 # Add Object#deep_freeze
 Object.instance_eval { include IceNine::CoreExt::Object }

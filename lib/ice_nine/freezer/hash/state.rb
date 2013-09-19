@@ -7,6 +7,6 @@ module IceNine
       # Skip freezing Hash::State objects on Rubinius
       class State < NoFreeze; end
 
-    end # class Hash
-  end # class Freezer
-end # module IceNine
+    end # Hash
+  end # Freezer
+end # IceNine

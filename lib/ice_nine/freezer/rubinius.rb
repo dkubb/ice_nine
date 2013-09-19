@@ -6,5 +6,5 @@ module IceNine
     # Skip freezing Rubinius objects
     class Rubinius < NoFreeze; end
 
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

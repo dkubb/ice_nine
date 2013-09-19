@@ -6,5 +6,5 @@ module IceNine
     # Skip freezing true objects
     class TrueClass < NoFreeze; end
 
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

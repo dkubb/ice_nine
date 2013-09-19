@@ -6,5 +6,5 @@ module IceNine
     # Skip freezing nil objects
     class NilClass < NoFreeze; end
 
-  end # class Freezer
-end # module IceNine
+  end # Freezer
+end # IceNine

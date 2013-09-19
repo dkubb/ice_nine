@@ -25,6 +25,6 @@ module IceNine
         super
       end
 
-    end # class Range
-  end # class Freezer
-end # module IceNine
+    end # Range
+  end # Freezer
+end # IceNine
