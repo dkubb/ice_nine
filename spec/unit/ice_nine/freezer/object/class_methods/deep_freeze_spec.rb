@@ -17,7 +17,7 @@ describe IceNine::Freezer::Object, '.deep_freeze' do
       expect { subject }.to change(value, :frozen?).from(false).to(true)
     end
 
-    it 'freezes the instance variables in the Object' do
+    it 'freezes instance variables in the Object' do
       expect(subject.instance_variable_get(:@a)).to be_frozen
     end
   end

@@ -49,6 +49,11 @@ describe IceNine::Freezer::Range, '.deep_freeze' do
     it 'freeze the last object in the Range' do
       expect(subject.end).to be_frozen
     end
+
+    it 'freezes instance variables in the Range' do
+      value.instance_eval { @a = '1' }
+      expect(subject.instance_variable_get(:@a)).to be_frozen
+    end
   end
 
   context 'with a Range' do

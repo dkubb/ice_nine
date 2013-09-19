@@ -20,6 +20,11 @@ describe IceNine::Freezer::Array, '.deep_freeze' do
     it 'freezes each entry in the Array' do
       expect(subject.select(&:frozen?)).to eql(subject)
     end
+
+    it 'freezes instance variables in the Array' do
+      value.instance_eval { @a = '1' }
+      expect(subject.instance_variable_get(:@a)).to be_frozen
+    end
   end
 
   context 'with an Array object' do

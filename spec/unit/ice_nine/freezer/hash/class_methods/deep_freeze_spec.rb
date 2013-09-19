@@ -25,6 +25,11 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
       expect(subject.values.select(&:frozen?)).to eql(subject.values)
     end
 
+    it 'freezes instance variables in the Hash' do
+      value.instance_eval { @a = '1' }
+      expect(subject.instance_variable_get(:@a)).to be_frozen
+    end
+
     if RUBY_VERSION >= '1.9' && RUBY_ENGINE == 'rbx'
       it 'does not freeze the Hash state' do
         expect(subject.instance_variable_get(:@state)).to_not be_frozen
