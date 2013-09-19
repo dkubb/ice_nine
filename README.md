@@ -34,29 +34,6 @@ object = Object.new
 object.deep_freeze
 ```
 
-Installation
-------------
-
-With Rubygems:
-
-```bash
-$ gem install ice_nine
-$ irb -rubygems
->> require 'ice_nine'
-=> true
-```
-
-With git and local working copy:
-
-```bash
-$ git clone git://github.com/dkubb/ice_nine.git
-$ cd ice_nine
-$ rake install
-$ irb -rubygems
->> require 'ice_nine'
-=> true
-```
-
 Contributing
 ------------
 
