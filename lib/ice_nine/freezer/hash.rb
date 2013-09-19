@@ -14,18 +14,17 @@ module IceNine
       #   hash.values.select(&:frozen?)  # => ['1', '2']
       #
       # @param [Hash] hash
-      # @param [RecursionGuard] recursion_guard
       #
       # @return [Hash]
       #
       # @api public
-      def self.deep_freeze(hash, recursion_guard = RecursionGuard.new)
-        IceNine.deep_freeze(hash.default_proc || hash.default, recursion_guard)
-        hash.each do |key, value|
-          IceNine.deep_freeze(key, recursion_guard)
-          IceNine.deep_freeze(value, recursion_guard)
-        end
+      def self.deep_freeze(hash)
         super
+        IceNine.deep_freeze(hash.default_proc || hash.default)
+        hash.each do |key, value|
+          IceNine.deep_freeze(key)
+          IceNine.deep_freeze(value)
+        end
       end
 
     end # Hash
