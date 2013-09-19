@@ -19,16 +19,6 @@ describe IceNine, '.deep_freeze' do
       value.freeze
     end
 
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'does not freeze the object' do
-      expect { subject }.to_not change(value, :frozen?).from(true)
-    end
-
-    it 'does not freeze the instance variables in the Object' do
-      expect(subject.instance_variable_get(:@a)).to_not be_frozen
-    end
+    it_behaves_like 'IceNine::Freezer::NoFreeze.deep_freeze'
   end
 end

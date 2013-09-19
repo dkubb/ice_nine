@@ -11,10 +11,6 @@ describe IceNine::Freezer::Object, '.deep_freeze' do
   context 'with an Object' do
     let(:value) { Object.new }
 
-    before do
-      value.instance_eval { @a = '1' }
-    end
-
     context 'without a circular reference' do
       it_behaves_like 'IceNine::Freezer::Object.deep_freeze'
     end
