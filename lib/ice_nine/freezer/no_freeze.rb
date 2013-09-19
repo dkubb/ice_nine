@@ -13,11 +13,12 @@ module IceNine
       #   object.frozen?  # => false
       #
       # @param [Object] object
+      # @param [RecursionGuard] _recursion_guard
       #
       # @return [Object]
       #
       # @api public
-      def self.deep_freeze(object)
+      def self.deep_freeze(object, _recursion_guard = nil)
         object
       end
 

@@ -26,5 +26,15 @@ describe IceNine::Freezer::Object, '.deep_freeze' do
     it 'freezes the instance variables in the Object' do
       expect(subject.instance_variable_get(:@a)).to be_frozen
     end
+
+    context 'with a circular reference' do
+      before do
+        value.instance_eval { @b = self }
+      end
+
+      it 'freezes the object' do
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
+      end
+    end
   end
 end
