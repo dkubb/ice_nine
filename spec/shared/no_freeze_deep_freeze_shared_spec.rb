@@ -2,7 +2,7 @@
 
 shared_examples 'IceNine::Freezer::NoFreeze.deep_freeze' do
   before do
-    value.instance_eval { @a = '1' unless frozen? }
+    value.instance_eval { @a = '1' } unless value.frozen?
   end
 
   it 'returns the object' do
