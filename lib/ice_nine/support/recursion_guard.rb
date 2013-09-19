@@ -17,10 +17,10 @@ module IceNine
     # Guard against recursively calling a block with the same object
     #
     # @example
-    #  recursion_guard = IceNine::RecursionGuard.new
-    #  recursion_guard.guard(object_id) do
-    #    logic_which_may_be_recursively_called_with_object_id(recursion_guard)
-    #  end
+    #   recursion_guard = IceNine::RecursionGuard.new
+    #   recursion_guard.guard(object_id) do
+    #     logic_which_may_be_recursively_called_with_object_id(recursion_guard)
+    #   end
     #
     # @param [Integer] caller_object_id
     #
