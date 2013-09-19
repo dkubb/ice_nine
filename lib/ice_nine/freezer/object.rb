@@ -32,8 +32,10 @@ module IceNine
       # @api private
       def self.freeze_instance_variables(object, recursion_guard)
         object.instance_variables.each do |ivar_name|
-          ivar = object.instance_variable_get(ivar_name)
-          IceNine.deep_freeze(ivar, recursion_guard)
+          IceNine.deep_freeze(
+            object.instance_variable_get(ivar_name),
+            recursion_guard
+          )
         end
       end
 
