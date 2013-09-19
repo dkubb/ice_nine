@@ -9,26 +9,13 @@ describe IceNine, '.deep_freeze' do
   let(:object) { IceNine    }
   let(:value)  { Object.new }
 
-  before do
-    value.instance_eval { @a = '1' }
-  end
-
   context 'when the object is not frozen' do
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'freezes the object' do
-      expect { subject }.to change(value, :frozen?).from(false).to(true)
-    end
-
-    it 'freezes the instance variables in the Object' do
-      expect(subject.instance_variable_get(:@a)).to be_frozen
-    end
+    it_behaves_like 'IceNine::Freezer::Object.deep_freeze'
   end
 
   context 'when the object is frozen' do
     before do
+      value.instance_eval { @a = '1' }
       value.freeze
     end
 

@@ -10,6 +10,7 @@ shared_examples 'IceNine::Freezer::Object.deep_freeze' do
   end
 
   it 'freezes instance variables in the Object' do
+    value.instance_eval { @a = '1' }
     expect(subject.instance_variable_get(:@a)).to be_frozen
   end
 end
