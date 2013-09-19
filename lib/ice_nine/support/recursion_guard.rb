@@ -11,7 +11,7 @@ module IceNine
     #
     # @api public
     def initialize
-      @object_ids = Set.new
+      @object_ids = {}
     end
 
     # Guard against recursively calling a block with the same object
@@ -28,8 +28,8 @@ module IceNine
     #
     # @api public
     def guard(caller_object_id)
-      return if @object_ids.include?(caller_object_id)
-      @object_ids << caller_object_id
+      return if @object_ids.key?(caller_object_id)
+      @object_ids[caller_object_id] = nil
       yield
     end
 
