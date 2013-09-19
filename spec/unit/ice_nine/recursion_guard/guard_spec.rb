@@ -16,7 +16,7 @@ describe IceNine::RecursionGuard, '#guard' do
     end
 
     it 'returns the expected value' do
-      should equal(return_value)
+      should be(return_value)
     end
   end
 
@@ -27,7 +27,7 @@ describe IceNine::RecursionGuard, '#guard' do
     end
 
     it 'returns the expected value' do
-      should equal(return_value)
+      should be(return_value)
     end
   end
 end
