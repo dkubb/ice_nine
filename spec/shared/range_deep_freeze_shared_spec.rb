@@ -9,11 +9,11 @@ shared_examples 'IceNine::Freezer::Range.deep_freeze' do
     expect { subject }.to change(value, :frozen?).from(false).to(true)
   end
 
-  it 'freeze the first object in the Range' do
+  it 'freeze the first element in the Range' do
     expect(subject.begin).to be_frozen
   end
 
-  it 'freeze the last object in the Range' do
+  it 'freeze the last element in the Range' do
     expect(subject.end).to be_frozen
   end
 
