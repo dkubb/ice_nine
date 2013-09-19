@@ -7,16 +7,6 @@ describe IceNine::Freezer::NoFreeze, '.deep_freeze' do
   let(:object) { described_class }
   let(:value)  { double('value') }
 
-  shared_examples 'IceNine::Freezer::NoFreeze.deep_freeze' do
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'does not freeze the object' do
-      expect { subject }.to_not change(value, :frozen?).from(false)
-    end
-  end
-
   context 'with a recursion guard' do
     subject { object.deep_freeze(value, recursion_guard) }
 
