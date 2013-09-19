@@ -15,7 +15,7 @@ describe IceNine::Freezer::Numeric, '.deep_freeze' do
     context "with a #{value.class} object" do
       let(:value) { value }
 
-      it_behaves_like 'IceNine::Freezer::Numeric.deep_freeze'
+      it_behaves_like 'IceNine::Freezer::NoFreeze.deep_freeze'
     end
   end
 end
