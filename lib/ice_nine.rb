@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'set'
-
 require 'ice_nine/support/recursion_guard'
 
 require 'ice_nine/freezer'
