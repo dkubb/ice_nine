@@ -2,7 +2,7 @@
 
 module IceNine
 
-  # Unreleased gem version
+  # Gem version
   VERSION = '0.10.0'.freeze
 
 end # module IceNine
