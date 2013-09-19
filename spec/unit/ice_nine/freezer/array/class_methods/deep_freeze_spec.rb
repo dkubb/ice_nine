@@ -22,5 +22,13 @@ describe IceNine::Freezer::Array, '.deep_freeze' do
     it 'freezes each entry in the Array' do
       expect(subject.select(&:frozen?)).to eql(subject)
     end
+
+    context 'with a circular reference' do
+      before { value << value }
+
+      it 'freezes the object' do
+        expect { subject }.to change(value, :frozen?).from(false).to(true)
+      end
+    end
   end
 end

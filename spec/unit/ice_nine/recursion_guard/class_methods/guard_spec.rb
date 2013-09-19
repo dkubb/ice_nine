@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'ice_nine/support/recursion_guard'
 
-describe IceNine::RecursionGuard, '.guard' do
+describe IceNine::RecursionGuard, '#guard' do
   subject { object.guard(object_id, &method(:block)) }
 
   let(:object)       { IceNine::RecursionGuard.new }

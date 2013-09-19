@@ -78,5 +78,37 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
         expect(subject.instance_variable_get(:@entries)).to_not be_frozen
       end
     end
+
+    context 'that is a circular reference' do
+      before { value.default = value }
+
+      it 'freezes the default value' do
+        expect(subject.default).to be_frozen
+      end
+    end
+  end
+
+  context 'with a Hash object containing itself as a key' do
+    let(:value) do
+      value = {}
+      value[value] = 1
+      value
+    end
+
+    it 'freezes the object' do
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
+    end
+  end
+
+  context 'with a Hash object containing itself as a value' do
+    let(:value) do
+      value = {}
+      value['a'] = value
+      value
+    end
+
+    it 'freezes the object' do
+      expect { subject }.to change(value, :frozen?).from(false).to(true)
+    end
   end
 end
