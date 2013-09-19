@@ -25,8 +25,8 @@ def self.nested(depth, width, array_length)
   hash
 end
 
-hash = nested(3, 5, 100)
+hash = nested(3, 5, 500)
 
 RBench.run do
-  report("deep_freeze") { IceNine.deep_freeze(hash) }
+  report('deep_freeze') { IceNine.deep_freeze(hash) }
 end
