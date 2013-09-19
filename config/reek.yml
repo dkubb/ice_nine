@@ -63,7 +63,6 @@ TooManyStatements:
   exclude:
   - IceNine::Freezer::Hash#self.deep_freeze
   - IceNine::Freezer::Range#self.deep_freeze
-  - IceNine::RecursionGuard#guard
   - each
   max_statements: 2
 UncommunicativeMethodName:

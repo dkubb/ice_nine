@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'ice_nine/support/recursion_guard'
-
 require 'ice_nine/freezer'
 require 'ice_nine/freezer/object'
 require 'ice_nine/freezer/no_freeze'
@@ -30,16 +28,13 @@ module IceNine
   #   object = IceNine.deep_freeze(object)
   #
   # @param [Object] object
-  # @param [RecursionGuard] recursion_guard
   #
   # @return [Object]
   #
   # @api public
-  def self.deep_freeze(object, recursion_guard = RecursionGuard.new)
+  def self.deep_freeze(object)
     return object if object.frozen?
-    recursion_guard.guard(object.__id__) do
-      Freezer[object.class].deep_freeze(object, recursion_guard)
-    end
+    Freezer[object.class].deep_freeze(object)
   end
 
 end # IceNine
