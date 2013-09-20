@@ -23,7 +23,7 @@ describe IceNine, '.deep_freeze' do
       should be(value)
     end
 
-    it 'freezes the object' do
+    it 'leaves the object frozen' do
       expect { subject }.not_to change(value, :frozen?).from(true)
     end
 
