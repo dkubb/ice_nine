@@ -22,7 +22,6 @@ module IceNine
 
       # Deep freeze an object
       #
-      #
       # @see IceNine.deep_freeze!
       #
       # @example
