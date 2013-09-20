@@ -30,7 +30,6 @@ module IceNine
   #   object = IceNine.deep_freeze(object)
   #
   # @param [Object] object
-  # @param [RecursionGuard] recursion_guard
   #
   # @return [Object]
   #
