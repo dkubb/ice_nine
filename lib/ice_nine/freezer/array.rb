@@ -19,10 +19,10 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(array, recursion_guard = RecursionGuard.new)
+        super
         array.each do |entry|
           IceNine.deep_freeze(entry, recursion_guard)
         end
-        super
       end
 
     end # Array

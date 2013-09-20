@@ -20,12 +20,12 @@ module IceNine
       #
       # @api public
       def self.deep_freeze(hash, recursion_guard = RecursionGuard.new)
+        super
         IceNine.deep_freeze(hash.default_proc || hash.default, recursion_guard)
         hash.each do |key, value|
           IceNine.deep_freeze(key, recursion_guard)
           IceNine.deep_freeze(value, recursion_guard)
         end
-        super
       end
 
     end # Hash
