@@ -44,14 +44,14 @@ module IceNine
 
     # Deep freeze an object with a particular Freezer
     #
-    # @see IceNine.fast_deep_freeze
+    # @see IceNine.deep_freeze!
     #
     # @param [Object] object
     #
     # @return [Object]
     #
     # @api public
-    def self.fast_deep_freeze(object)
+    def self.deep_freeze!(object)
       guarded_deep_freeze(object, RecursionGuard::Frozen.new)
     end
 

@@ -3,8 +3,8 @@
 require 'spec_helper'
 require 'ice_nine'
 
-describe IceNine, '.fast_deep_freeze' do
-  subject { object.fast_deep_freeze(value) }
+describe IceNine, '.deep_freeze!' do
+  subject { object.deep_freeze!(value) }
 
   let(:object) { IceNine    }
   let(:value)  { Object.new }

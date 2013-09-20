@@ -45,18 +45,18 @@ module IceNine
   # contains no shallowly frozen objects that need deep freezing.
   #
   # @example
-  #   IceNine.fast_deep_freeze(['a', 'b']).map(&:frozen?) # [true, true]
+  #   IceNine.deep_freeze!(['a', 'b']).map(&:frozen?) # [true, true]
   #
   # @example
-  #   IceNine.fast_deep_freeze(['a', 'b'].freeze).map(&:frozen?) # [false, false]
+  #   IceNine.deep_freeze!(['a', 'b'].freeze).map(&:frozen?) # [false, false]
   #
   # @param [Object] object
   #
   # @return [Object]
   #
   # @api public
-  def self.fast_deep_freeze(object)
-    Freezer.fast_deep_freeze(object)
+  def self.deep_freeze!(object)
+    Freezer.deep_freeze!(object)
   end
 
 end # IceNine

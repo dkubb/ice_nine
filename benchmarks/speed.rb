@@ -29,6 +29,6 @@ hash = nested(3, 5, 500)
 hash2 = nested(3, 5, 500)
 
 RBench.run do
-  report('deep_freeze')      { IceNine.deep_freeze(hash) }
-  report('fast_deep_freeze') { IceNine.fast_deep_freeze(hash2) }
+  report('deep_freeze')  { IceNine.deep_freeze(hash) }
+  report('deep_freeze!') { IceNine.deep_freeze!(hash2) }
 end
