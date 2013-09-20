@@ -4,7 +4,7 @@ module IceNine
 
   # Protect against infinite recursion
   #
-  # @api private
+  # @private
   class RecursionGuard
 
     # Protects against infinite recursion by never yielding with the same
