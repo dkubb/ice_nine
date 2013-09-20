@@ -17,12 +17,10 @@ module IceNine
       # @param [RecursionGuard] recursion_guard
       #
       # @return [Range]
-      #
-      # @api public
-      def self.deep_freeze(range, recursion_guard = RecursionGuard::ObjectSet.new)
+      def self.guarded_deep_freeze(range, recursion_guard)
         super
-        IceNine.deep_freeze(range.begin, recursion_guard)
-        IceNine.deep_freeze(range.end, recursion_guard)
+        Freezer.guarded_deep_freeze(range.begin, recursion_guard)
+        Freezer.guarded_deep_freeze(range.end, recursion_guard)
         range
       end
 

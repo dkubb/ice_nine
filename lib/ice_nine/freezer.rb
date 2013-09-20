@@ -29,6 +29,32 @@ module IceNine
       @freezer_cache[mod]
     end
 
+    # Deep freeze an object with a particular Freezer
+    #
+    # @see IceNine.deep_freeze
+    #
+    # @param [Object] object
+    #
+    # @return [Object]
+    #
+    # @api public
+    def self.deep_freeze(object)
+      guarded_deep_freeze(object, RecursionGuard::ObjectSet.new)
+    end
+
+    # Deep freeze an object with a particular Freezer
+    #
+    # @see IceNine.fast_deep_freeze
+    #
+    # @param [Object] object
+    #
+    # @return [Object]
+    #
+    # @api public
+    def self.fast_deep_freeze(object)
+      guarded_deep_freeze(object, RecursionGuard::Frozen.new)
+    end
+
     # Find a Freezer descendant by name
     #
     # @param [String] name
@@ -62,8 +88,22 @@ module IceNine
       const_get(namespace) if const_defined?(namespace, nil)
     end
 
+    # Deep freeze an object with a particular Freezer and RecursionGuard
+    #
+    # @param [Object] object
+    # @param [RecursionGuard] recursion_guard
+    #
+    # @return [Object]
+    #
+    # @api private
+    def self.guarded_deep_freeze(object, recursion_guard)
+      recursion_guard.guard(object) do
+        Freezer[object.class].guarded_deep_freeze(object, recursion_guard)
+      end
+    end
+
     class << self
-      protected :const_lookup
+      protected :const_lookup, :guarded_deep_freeze
     end
 
   end # Freezer
