@@ -31,7 +31,7 @@ module IceNine
       # @return [Object]
       def guard(object)
         caller_object_id = object.__id__
-        return if @object_ids.key?(caller_object_id)
+        return object if @object_ids.key?(caller_object_id)
         @object_ids[caller_object_id] = nil
         yield
       end

@@ -22,7 +22,7 @@ describe IceNine::RecursionGuard::ObjectSet, '#guard' do
 
   context 'when the block is recursive' do
     def block
-      expect(subject).to be_nil
+      expect(subject).to be(object_arg)
       return_value
     end
 
