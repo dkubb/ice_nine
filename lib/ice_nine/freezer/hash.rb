@@ -19,7 +19,7 @@ module IceNine
       # @return [Hash]
       #
       # @api public
-      def self.deep_freeze(hash, recursion_guard = RecursionGuard.new)
+      def self.deep_freeze(hash, recursion_guard = RecursionGuard::ObjectSet.new)
         super
         IceNine.deep_freeze(hash.default_proc || hash.default, recursion_guard)
         hash.each do |key, value|
