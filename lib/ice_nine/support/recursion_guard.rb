@@ -7,6 +7,8 @@ module IceNine
   # @api private
   class RecursionGuard
 
+    # Protects against infinite recursion by never yielding with the same
+    # object more than once.
     class ObjectSet < self
 
       # Initialize a recursion guard
@@ -36,8 +38,14 @@ module IceNine
 
     end # ObjectSet
 
+    # Protects against infinite recursion by not yielding with frozen objects
     class Frozen < self
 
+      # Guard against recursively calling a block with the same frozen object
+      #
+      # @param [Object] object
+      #
+      # @return [Object]
       def guard(object)
         return object if object.frozen?
         yield

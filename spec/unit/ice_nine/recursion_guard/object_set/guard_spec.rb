@@ -3,11 +3,11 @@
 require 'spec_helper'
 require 'ice_nine/support/recursion_guard'
 
-describe IceNine::RecursionGuard, '#guard' do
-  subject { object.guard(object_id, &method(:block)) }
+describe IceNine::RecursionGuard::ObjectSet, '#guard' do
+  subject { object.guard(object_arg, &method(:block)) }
 
   let(:object)       { IceNine::RecursionGuard::ObjectSet.new }
-  let(:object_id)    { 1                                      }
+  let(:object_arg)   { Object.new                             }
   let(:return_value) { double('return_value')                 }
 
   context 'when the block is not recursive' do

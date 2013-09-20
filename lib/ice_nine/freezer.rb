@@ -29,10 +29,6 @@ module IceNine
       @freezer_cache[mod]
     end
 
-    def self.fast_deep_freeze(object)
-      deep_freeze(object, RecursionGuard::Frozen.new)
-    end
-
     # Find a Freezer descendant by name
     #
     # @param [String] name
