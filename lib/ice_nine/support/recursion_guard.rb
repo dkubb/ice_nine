@@ -23,7 +23,7 @@ module IceNine
       # @example
       #   recursion_guard = IceNine::RecursionGuard::ObjectSet.new
       #   recursion_guard.guard(object) do
-      #     logic_which_may_be_recursively_called_with_object_id(recursion_guard)
+      #     logic_which_may_be_recursively_called_with_object(recursion_guard)
       #   end
       #
       # @param [Object] object

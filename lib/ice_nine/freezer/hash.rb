@@ -19,7 +19,8 @@ module IceNine
       # @return [Hash]
       def self.guarded_deep_freeze(hash, recursion_guard)
         super
-        Freezer.guarded_deep_freeze(hash.default_proc || hash.default, recursion_guard)
+        default = hash.default_proc || hash.default
+        Freezer.guarded_deep_freeze(default, recursion_guard)
         hash.each do |key, value|
           Freezer.guarded_deep_freeze(key, recursion_guard)
           Freezer.guarded_deep_freeze(value, recursion_guard)
