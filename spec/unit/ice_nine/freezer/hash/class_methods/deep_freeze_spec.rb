@@ -10,7 +10,7 @@ describe IceNine::Freezer::Hash, '.deep_freeze' do
 
   context 'with a Hash object having a default proc' do
     let(:value) do
-      Hash.new {}.update(Object.new => Object.new)
+      Hash.new { }.update(Object.new => Object.new)
     end
 
     it_behaves_like 'IceNine::Freezer::Hash.deep_freeze'
