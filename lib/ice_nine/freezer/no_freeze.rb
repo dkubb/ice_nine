@@ -15,9 +15,7 @@ module IceNine
       # @param [Object] object
       #
       # @return [Object]
-      #
-      # @api public
-      def self.deep_freeze(object, *)
+      def self.guarded_deep_freeze(object, *)
         object
       end
 

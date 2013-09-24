@@ -3,8 +3,8 @@
 require 'spec_helper'
 require 'ice_nine'
 
-describe IceNine, '.deep_freeze' do
-  subject { object.deep_freeze(value) }
+describe IceNine, '.deep_freeze!' do
+  subject { object.deep_freeze!(value) }
 
   let(:object) { IceNine    }
   let(:value)  { Object.new }
@@ -19,16 +19,6 @@ describe IceNine, '.deep_freeze' do
       value.freeze
     end
 
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'leaves the object frozen' do
-      expect { subject }.not_to change(value, :frozen?).from(true)
-    end
-
-    it 'freezes instance variables' do
-      expect(subject.instance_variable_get(:@a)).to be_frozen
-    end
+    it_behaves_like 'IceNine::Freezer::NoFreeze.deep_freeze'
   end
 end

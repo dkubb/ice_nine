@@ -30,16 +30,33 @@ module IceNine
   #   object = IceNine.deep_freeze(object)
   #
   # @param [Object] object
-  # @param [RecursionGuard] recursion_guard
   #
   # @return [Object]
   #
   # @api public
-  def self.deep_freeze(object, recursion_guard = RecursionGuard.new)
-    return object if object.frozen?
-    recursion_guard.guard(object.__id__) do
-      Freezer[object.class].deep_freeze(object, recursion_guard)
-    end
+  def self.deep_freeze(object)
+    Freezer.deep_freeze(object)
+  end
+
+  # Deep Freeze an object
+  #
+  # This method uses a faster algorithm that will assume objects that are
+  # `frozen?` do not need to be frozen deeply. Use this method when `object`
+  # contains no shallowly frozen objects that need deep freezing.
+  #
+  # @example
+  #   IceNine.deep_freeze!(['a', 'b']).map(&:frozen?) # [true, true]
+  #
+  # @example
+  #   IceNine.deep_freeze!(['a', 'b'].freeze).map(&:frozen?) # [false, false]
+  #
+  # @param [Object] object
+  #
+  # @return [Object]
+  #
+  # @api public
+  def self.deep_freeze!(object)
+    Freezer.deep_freeze!(object)
   end
 
 end # IceNine

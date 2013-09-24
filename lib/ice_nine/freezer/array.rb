@@ -16,13 +16,11 @@ module IceNine
       # @param [RecursionGuard] recursion_guard
       #
       # @return [Array]
-      #
-      # @api public
-      def self.deep_freeze(array, recursion_guard = RecursionGuard.new)
-        array.each do |entry|
-          IceNine.deep_freeze(entry, recursion_guard)
-        end
+      def self.guarded_deep_freeze(array, recursion_guard)
         super
+        array.each do |entry|
+          Freezer.guarded_deep_freeze(entry, recursion_guard)
+        end
       end
 
     end # Array
