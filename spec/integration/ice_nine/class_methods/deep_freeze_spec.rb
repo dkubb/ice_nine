@@ -12,7 +12,7 @@ describe IceNine, '.deep_freeze' do
   context 'with a shallowly frozen value' do
     let(:value) { ['a', ['b', 'c']].freeze }
 
-    it 'does not deep freeze' do
+    it 'does a deep freeze' do
       expect(subject.select(&:frozen?)).to eql(value)
     end
   end
