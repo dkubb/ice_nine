@@ -2,7 +2,6 @@ AllCops:
   Includes:
     - '**/*.rake'
     - 'Gemfile'
-    - 'Gemfile.devtools'
   Excludes:
     - '**/vendor/**'
     - '**/benchmarks/**'
