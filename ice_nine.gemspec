@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.description = 'Deep Freeze Ruby Objects'
   gem.summary     = gem.description
   gem.homepage    = 'https://github.com/dkubb/ice_nine'
+  gem.license     = 'MIT'
 
   gem.require_paths    = %w[lib]
   gem.files            = `git ls-files`.split($/)
