@@ -1,20 +1,24 @@
 language: ruby
+cache: bundler
 bundler_args: --without yard guard benchmarks
 script: "bundle exec rake ci"
 rvm:
   - 1.9.3
   - 2.0.0
   - ruby-head
-  - rbx-19mode
+  - rbx
 matrix:
   include:
     - rvm: jruby-19mode
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
+      env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+    - rvm: jruby-20mode
+      env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
     - rvm: jruby-head
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
+      env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
   allow_failures:
-    - rvm: ruby-head   # travis broken
-    - rvm: rbx-19mode  # mutant fails
+    - rvm: ruby-head  # travis broken
+    - rvm: rbx        # mutant fails
+  fast_finish: true
 notifications:
   irc:
     channels:
