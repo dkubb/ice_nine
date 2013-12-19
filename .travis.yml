@@ -16,8 +16,7 @@ matrix:
     - rvm: jruby-head
       env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
   allow_failures:
-    - rvm: ruby-head  # travis broken
-    - rvm: rbx        # mutant fails
+    - rvm: rbx  # mutant fails
   fast_finish: true
 notifications:
   irc:
