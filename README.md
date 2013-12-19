@@ -32,6 +32,9 @@ require 'ice_nine/core_ext/object'
 
 object = Object.new
 object.deep_freeze
+
+# Faster deep freeze that skips walking frozen objects
+object = IceNine.deep_freeze!(Object.new)
 ```
 
 Contributing
