@@ -19,6 +19,8 @@ Examples
 --------
 
 ```ruby
+require 'ice_nine'
+
 # Deep freezes most kinds of objects
 hash   = IceNine.deep_freeze('a' => '1')
 array  = IceNine.deep_freeze([ 'a', 'b', 'c' ])
@@ -27,14 +29,15 @@ struct = IceNine.deep_freeze(Struct.new(:a, :b).new('a', 'b'))
 object = IceNine.deep_freeze(Object.new)
 user   = IceNine.deep_freeze(User.new(name: 'dkubb'))
 
+# Faster deep freeze that skips deep-freezing frozen objects
+object = IceNine.deep_freeze!(Object.new)
+
 # Add core extension for Object#deep_freeze (not required by default)
+require 'ice_nine'
 require 'ice_nine/core_ext/object'
 
 object = Object.new
 object.deep_freeze
-
-# Faster deep freeze that skips walking frozen objects
-object = IceNine.deep_freeze!(Object.new)
 ```
 
 Contributing
