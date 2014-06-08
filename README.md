@@ -8,12 +8,14 @@ Deep freeze ruby objects
 [![Dependency Status](https://gemnasium.com/dkubb/ice_nine.svg)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/dkubb/ice_nine.png)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/dkubb/ice_nine/badge.png?branch=master)][coveralls]
+[![Inline docs](http://inch-ci.org/github/dkubb/ice_nine.svg?branch=master)](inch-ci)
 
 [gem]: https://rubygems.org/gems/ice_nine
 [travis]: https://travis-ci.org/dkubb/ice_nine
 [gemnasium]: https://gemnasium.com/dkubb/ice_nine
 [codeclimate]: https://codeclimate.com/github/dkubb/ice_nine
 [coveralls]: https://coveralls.io/r/dkubb/ice_nine
+[inch-ci]: http://inch-ci.org/github/dkubb/ice_nine
 
 Examples
 --------
