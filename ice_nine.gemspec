@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files       = `git ls-files -- spec/{unit,integration}`.split($/)
   gem.extra_rdoc_files = %w[LICENSE README.md TODO]
 
-  gem.add_development_dependency('bundler', '~> 1.6', '>= 1.6.2')
+  gem.add_development_dependency('bundler', '~> 1.6', '>= 1.6.1')
 end

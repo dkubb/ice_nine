@@ -1,5 +1,4 @@
 language: ruby
-before_install: "rvm repair all && gem install bundler"
 bundler_args: --without yard guard benchmarks
 script: "bundle exec rake ci:metrics"
 rvm:
