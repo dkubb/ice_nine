@@ -13,7 +13,7 @@ describe IceNine::Freezer::Range, '.deep_freeze' do
       attr_reader :number, :range
       protected :number, :range
 
-      def initialize(number, range = nil)
+      def initialize(number)
         @number = number
         @range  = nil
       end
