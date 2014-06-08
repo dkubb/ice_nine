@@ -3,11 +3,11 @@ ice_nine
 
 Deep freeze ruby objects
 
-[![Gem Version](https://badge.fury.io/rb/ice_nine.png)][gem]
-[![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/dkubb/ice_nine.png)][gemnasium]
+[![Gem Version](https://badge.fury.io/rb/ice_nine.svg)][gem]
+[![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.svg?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/dkubb/ice_nine.svg)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/dkubb/ice_nine.png)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/dkubb/ice_nine/badge.png?branch=master)][coveralls]
+[![Coverage Status](https://coveralls.io/repos/dkubb/ice_nine/badge.svg?branch=master)][coveralls]
 
 [gem]: https://rubygems.org/gems/ice_nine
 [travis]: https://travis-ci.org/dkubb/ice_nine
