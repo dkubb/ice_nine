@@ -62,16 +62,8 @@ TooManyMethods:
 TooManyStatements:
   enabled: true
   exclude:
-  - IceNine::Freezer::Hash#self.freeze_key_value_pairs
-  - IceNine::Freezer::Hash#self.guarded_deep_freeze
-  - IceNine::Freezer::Hash#self.deep_freeze
-  - IceNine::Freezer::Object#self.guarded_deep_freeze
-  - IceNine::Freezer::Range#self.deep_freeze
-  - IceNine::Freezer::Range#self.guarded_deep_freeze
-  - IceNine::RecursionGuard#guard
-  - IceNine::RecursionGuard::ObjectSet#guard
   - each
-  max_statements: 2
+  max_statements: 5
 UncommunicativeMethodName:
   enabled: true
   exclude: []
