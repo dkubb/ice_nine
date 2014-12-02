@@ -14,6 +14,8 @@ shared_examples 'IceNine::Freezer::NoFreeze.deep_freeze' do
   end
 
   it 'does not freeze instance variables' do
-    expect(subject.instance_variable_get(:@a)).to_not be_frozen
+    if subject.instance_variable_defined?(:@a)
+      expect(subject.instance_variable_get(:@a)).to_not be_frozen
+    end
   end
 end
