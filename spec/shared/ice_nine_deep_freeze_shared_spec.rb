@@ -256,7 +256,7 @@ shared_examples 'IceNine.deep_freeze' do
       end
 
       it 'does not freeze the object' do
-        expect { subject }.to_not change(value, :frozen?).from(false)
+        expect { subject }.to_not change(value, :frozen?).from(value.frozen?)
       end
     end
   end
