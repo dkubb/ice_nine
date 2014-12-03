@@ -10,10 +10,12 @@ shared_examples 'IceNine::Freezer::NoFreeze.deep_freeze' do
   end
 
   it 'does not freeze the object' do
-    expect { subject }.to_not change(value, :frozen?).from(false)
+    expect { subject }.to_not change(value, :frozen?).from(value.frozen?)
   end
 
   it 'does not freeze instance variables' do
-    expect(subject.instance_variable_get(:@a)).to_not be_frozen
+    if subject.instance_variable_defined?(:@a)
+      expect(subject.instance_variable_get(:@a)).to_not be_frozen
+    end
   end
 end

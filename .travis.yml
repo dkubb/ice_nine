@@ -4,7 +4,7 @@ script: "bundle exec rake ci:metrics"
 rvm:
   - 1.9.3
   - 2.0.0
-  - 2.1.2
+  - 2.1.5
   - ruby-head
   - rbx-2
 matrix:
@@ -12,10 +12,6 @@ matrix:
     - rvm: jruby
       env: JRUBY_OPTS="$JRUBY_OPTS --debug --1.9"  # for simplecov
     - rvm: jruby
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug --2.0"  # for simplecov
-    - rvm: jruby-head
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug --1.9"  # for simplecov
-    - rvm: jruby-head
       env: JRUBY_OPTS="$JRUBY_OPTS --debug --2.0"  # for simplecov
   allow_failures:
     - rvm: ruby-head
