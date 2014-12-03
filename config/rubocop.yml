@@ -54,8 +54,16 @@ ConstantName:
 TrivialAccessors:
   Enabled: false
 
-# Allow empty lines around body
-EmptyLinesAroundBody:
+# Allow empty lines around class body
+EmptyLinesAroundClassBody:
+  Enabled: false
+
+# Allow empty lines around module body
+EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# Allow multiple line operations to not require indentation
+MultilineOperationIndentation:
   Enabled: false
 
 # Prefer String#% over Kernel#sprintf
@@ -83,6 +91,18 @@ EndAlignment:
 AlignParameters:
   Exclude:
     - spec/**/*_spec.rb
+
+# Prefer #kind_of? over #is_a?
+ClassCheck:
+  EnforcedStyle: kind_of?
+
+# Do not prefer double quotes to be used when %q or %Q is more appropriate
+UnneededPercentQ:
+  Enabled: false
+
+# Allow a maximum ABC score
+Metrics/AbcSize:
+  Max: 6.08
 
 # Allow modules to be qualified with a "::" prefix
 ClassAndModuleChildren:
