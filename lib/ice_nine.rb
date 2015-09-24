@@ -24,6 +24,8 @@ require 'ice_nine/version'
 # Base IceNine module
 module IceNine
 
+  module_function
+
   # Deep Freeze an object
   #
   # @example
@@ -34,7 +36,7 @@ module IceNine
   # @return [Object]
   #
   # @api public
-  def self.deep_freeze(object)
+  def deep_freeze(object)
     Freezer.deep_freeze(object)
   end
 
@@ -55,7 +57,7 @@ module IceNine
   # @return [Object]
   #
   # @api public
-  def self.deep_freeze!(object)
+  def deep_freeze!(object)
     Freezer.deep_freeze!(object)
   end
 
