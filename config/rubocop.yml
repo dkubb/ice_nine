@@ -108,3 +108,7 @@ Metrics/AbcSize:
 ClassAndModuleChildren:
   Exclude:
     - spec/**/*_spec.rb
+
+# Allow additional spaces
+ExtraSpacing:
+  Enabled: false
