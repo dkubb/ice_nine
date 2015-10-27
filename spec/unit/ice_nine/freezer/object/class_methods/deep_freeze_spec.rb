@@ -23,4 +23,18 @@ describe IceNine::Freezer::Object, '.deep_freeze' do
       it_behaves_like 'IceNine::Freezer::Object.deep_freeze'
     end
   end
+
+  context 'with an Object which undefs :freeze' do
+    let(:value) { UndefFreeze.new }
+
+    before do
+      klass = Class.new do
+        undef :freeze
+      end
+
+      stub_const('UndefFreeze', klass)
+    end
+
+    it_behaves_like 'IceNine::Freezer::NoFreeze.deep_freeze'
+  end
 end
