@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 shared_examples 'IceNine.deep_freeze' do
-
   context 'with an Object' do
     let(:value) { Object.new }
 

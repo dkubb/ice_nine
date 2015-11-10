@@ -5,3 +5,4 @@ AllCops:
     - 'benchmarks/**/*'
     - 'ice_nine.gemspec'
     - 'vendor/**/*'
+    - 'Guardfile'

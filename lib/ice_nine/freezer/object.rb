@@ -16,6 +16,8 @@ module IceNine
       #
       # @return [Object]
       def self.guarded_deep_freeze(object, recursion_guard)
+        return object unless object.respond_to?(:freeze)
+
         object.freeze
         freeze_instance_variables(object, recursion_guard)
         object
