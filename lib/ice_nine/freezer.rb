@@ -68,7 +68,7 @@ module IceNine
       freezer = name.split('::').reduce(self) do |mod, const|
         mod.const_lookup(const) or break mod
       end
-      freezer if freezer < self  # only return a descendant freezer
+      freezer if freezer < self # only return a descendant freezer
     end
 
     private_class_method :find
