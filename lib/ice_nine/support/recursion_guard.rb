@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'set'
+
 module IceNine
 
   # Protect against infinite recursion
@@ -15,7 +17,7 @@ module IceNine
       #
       # @return [undefined]
       def initialize
-        @object_ids = {}
+        @object_ids = Set.new
       end
 
       # Guard against recursively calling a block with the same object
@@ -31,8 +33,8 @@ module IceNine
       # @return [Object]
       def guard(object)
         caller_object_id = object.__id__
-        return object if @object_ids.key?(caller_object_id)
-        @object_ids[caller_object_id] = nil
+        return object if @object_ids.member?(caller_object_id)
+        @object_ids.add caller_object_id
         yield
       end
 
