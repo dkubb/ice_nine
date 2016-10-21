@@ -60,6 +60,14 @@ describe IceNine::Freezer, '.[]' do
     end
   end
 
+  describe 'when the module is a class created by instance_eval' do
+    let(:mod)     { Object.new.instance_eval('class User; end; User') }
+
+    it 'returns the freezer' do
+      should be(freezer)
+    end
+  end
+
   describe 'when the module is a struct' do
     let(:mod)     { Struct.new(:a)           }
     let(:freezer) { IceNine::Freezer::Struct }
