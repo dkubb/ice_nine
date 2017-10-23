@@ -10,12 +10,14 @@ rvm:
   - 2.4.2
   - ruby-head
   - rbx-2
+  - rbx
 matrix:
   include: []
   allow_failures:
     - rvm: 1.9.3
     - rvm: 2.0.0
     - rvm: rbx-2
+    - rvm: rbx
     - rvm: ruby-head
     - rvm: jruby
       env: JRUBY_OPTS="$JRUBY_OPTS --debug --1.9"  # for simplecov
