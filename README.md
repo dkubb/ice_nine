@@ -6,7 +6,7 @@ Deep freeze ruby objects
 [![Gem Version](https://badge.fury.io/rb/ice_nine.svg)][gem]
 [![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.svg?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/dkubb/ice_nine.svg)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/dkubb/ice_nine.png)][codeclimate]
+[![Code Climate](https://codeclimate.com/github/dkubb/ice_nine.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/dkubb/ice_nine.svg?branch=master)][inch]
 
 [gem]: https://rubygems.org/gems/ice_nine
