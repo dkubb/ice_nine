@@ -17,5 +17,8 @@ Gem::Specification.new do |gem|
   gem.test_files       = `git ls-files -- spec/{unit,integration}`.split($/)
   gem.extra_rdoc_files = %w[LICENSE README.md TODO]
 
-  gem.add_development_dependency('bundler', '~> 1.6', '>= 1.6.1')
+  gem.required_ruby_version = '>= 2.7.3'
+
+  gem.add_development_dependency('bundler', '~> 2.2',  '>= 2.2.33')
+  gem.add_development_dependency('rake',    '~> 13.0', '>= 13.0.6')
 end

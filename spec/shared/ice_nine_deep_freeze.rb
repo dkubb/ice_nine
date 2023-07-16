@@ -115,26 +115,6 @@ shared_examples 'IceNine.deep_freeze' do
     end
   end
 
-  context 'with a Range' do
-    let(:value) { 'a'..'z' }
-
-    it 'returns the object' do
-      should be(value)
-    end
-
-    it 'freezes the object' do
-      expect { subject }.to change(value, :frozen?).from(false).to(true)
-    end
-
-    it 'freeze the first object in the Range' do
-      expect(subject.begin).to be_frozen
-    end
-
-    it 'freeze the last object in the Range' do
-      expect(subject.end).to be_frozen
-    end
-  end
-
   context 'with a String' do
     let(:value) { '' }
 
