@@ -1,4 +1,16 @@
 ---
-name: ice_nine
-namespace: IceNine
-since: HEAD~1
+integration:
+  name: rspec
+requires:
+  - ice_nine
+matcher:
+  subjects:
+    - IceNine*
+  ignore:
+    - IceNine::Freezer.deep_freeze!
+    - IceNine::Freezer.guarded_deep_freeze
+    - IceNine::RecursionGuard::ObjectSet#guard
+mutation:
+  timeout: 1.0
+coverage_criteria:
+  timeout: true
