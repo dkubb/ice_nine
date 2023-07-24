@@ -6,8 +6,6 @@ requires:
 matcher:
   subjects:
     - IceNine*
-  ignore:
-    - IceNine::RecursionGuard::ObjectSet#guard
 mutation:
   timeout: 1.0
 coverage_criteria:
