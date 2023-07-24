@@ -1,4 +1,12 @@
 ---
-name: ice_nine
-namespace: IceNine
-since: HEAD~1
+integration:
+  name: rspec
+requires:
+  - ice_nine
+matcher:
+  subjects:
+    - IceNine*
+mutation:
+  timeout: 1.0
+coverage_criteria:
+  timeout: true

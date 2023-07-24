@@ -4,12 +4,12 @@ ice_nine
 Deep freeze ruby objects
 
 [![Gem Version](https://badge.fury.io/rb/ice_nine.svg)][gem]
-[![Build Status](https://secure.travis-ci.org/dkubb/ice_nine.svg?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/dkubb/ice_nine.svg)][gemnasium]
+[![Build Status](https://github.com/dkubb/ice_nine/actions/workflows/ci.yml/badge.svg)][ci]
 [![Code Climate](https://codeclimate.com/github/dkubb/ice_nine.png)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/dkubb/ice_nine.svg?branch=master)][inch]
 
 [gem]: https://rubygems.org/gems/ice_nine
+[ci]: https://github.com/dkubb/ice_nine/actions/
 [travis]: https://travis-ci.org/dkubb/ice_nine
 [gemnasium]: https://gemnasium.com/dkubb/ice_nine
 [codeclimate]: https://codeclimate.com/github/dkubb/ice_nine
@@ -48,4 +48,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 Copyright
 ---------
 
-Copyright &copy; 2012-2014 Dan Kubb. See LICENSE for details.
+Copyright &copy; 2012-2023 Dan Kubb. See LICENSE for details.

@@ -4,11 +4,12 @@ source 'https://rubygems.org'
 
 gemspec
 
-platform :rbx do
-  gem 'rubysl-bigdecimal', '~> 2.0.2'
-  gem 'rubysl-coverage',   '~> 2.0.3'
-end
-
 group :development, :test do
-  gem 'devtools', git: 'https://github.com/rom-rb/devtools.git'
+  gem 'rspec',        '~> 3.8', '>= 3.8.0'
+  gem 'mutant',       github: 'mbj/mutant'
+  gem 'mutant-rspec', github: 'mbj/mutant'
+
+  source 'https://oss:sxCL1o1navkPi2XnGB5WYBrhpY9iKIPL@gem.mutant.dev' do
+    gem 'mutant-license'
+  end
 end

@@ -19,7 +19,8 @@ if ENV['COVERAGE'] == 'true'
 end
 
 require 'ice_nine'
-require 'devtools/spec_helper'
+
+Dir[Pathname(__dir__).join('shared/**/*.rb')].each(&Kernel.method(:require))
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expect_with|
