@@ -97,7 +97,7 @@ module IceNine
     # @api private
     def self.guarded_deep_freeze(object, recursion_guard)
       recursion_guard.guard(object) do
-        Freezer[object.class].guarded_deep_freeze(object, recursion_guard)
+        self[object.class].guarded_deep_freeze(object, recursion_guard)
       end
     end
 

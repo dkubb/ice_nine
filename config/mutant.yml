@@ -8,7 +8,6 @@ matcher:
     - IceNine*
   ignore:
     - IceNine::Freezer.deep_freeze!
-    - IceNine::Freezer.guarded_deep_freeze
     - IceNine::RecursionGuard::ObjectSet#guard
 mutation:
   timeout: 1.0
